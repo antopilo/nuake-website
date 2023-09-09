@@ -1,0 +1,9 @@
+.articleBody {
+    max-width: 700px;
+    width:100%;
+}
+
+.header1 {
+    color: red;
+    margin-bottom: 16px;
+}
