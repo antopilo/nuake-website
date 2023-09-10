@@ -16,7 +16,7 @@ const components = {
         "mt-2 scroll-m-20 text-4xl font-bold tracking-tight header1",
         className
       ), poppins.className].join(" ")}
-      style={{marginBottom: '32px'}}
+      style={{marginBottom: '16px', marginTop: '32px'}}
       {...props}
     />
   ),
@@ -74,7 +74,7 @@ const components = {
   p: ({ className, ...props } : React.HTMLAttributes<HTMLParagraphElement>) => (
     <p
       className={[cn("leading-7 [&:not(:first-child)]:mt-6", className), poppins.className].join(" ")}
-      style={{padding: '8px 32px 8px 32px', fontSize: 15}}
+      style={{padding: '8px 32px 16px 32px', fontSize: 15}}
       {...props}
     />
   ),

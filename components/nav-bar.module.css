@@ -24,10 +24,38 @@
     transition: 0.15s;
 }
 
+.logoIcon {
+    border-radius: 0;
+    visibility: hidden;
+    height: 0;
+    transition: 0.15s;
+}
+
+
+
+@media (max-width: 640px)
+{
+    .logo {
+        width: 0;
+        visibility: hidden;
+    }
+
+    .logoIcon {
+        visibility: visible;
+        height: auto;
+        max-height: 40px;
+    }
+}
 
 .logo:hover {
     border-radius: 0;
     transition: 0.15s;
+    transform: scale(1.1);
+}
+
+.logoIcon:hover {
+    border-radius: 0;
+    
     transform: scale(1.1);
 }
 
@@ -70,6 +98,8 @@
     opacity: 0.9;
     height: 20px;
     transition: 0.2s;
+    fill: #848FA4;
+    stroke: wheat;
 }
 
 .navIcon:hover {

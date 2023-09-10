@@ -2,6 +2,7 @@ import { Navbar } from "@/components/navbar"
 import styles from "./blog.module.css"
 import Link from "next/link"
 import { Metadata } from "next/dist/lib/metadata/types/metadata-interface";
+import { Footer } from "@/components/footer";
 
 export async function generateMetadata(): Promise<Metadata> {
 // read route params then fetch data
@@ -44,6 +45,7 @@ export default function BlogPage () {
         blogHtml.push(
             <Link href={blogPosts[i].url}>
                 <div className={styles.blogItem}>
+                    
                     <div style={{backgroundImage: `url(${blogPosts[i].img_preview})`}} className={styles.blogItemImg}></div>
                     <div className={styles.blogItemRight}>
                         <div className={styles.dateLabel}>
@@ -75,8 +77,10 @@ export default function BlogPage () {
 
                     {blogHtml}
                 </div>
-                <p style={{marginTop: "100px", marginBottom: "100px"}}>More to come 🚧</p>
+
+                <p style={{marginTop: "100px", marginBottom: "100px"}}>🏗️ More to come... 🚧</p>
             </div>
+            <Footer/>
         </div>
     )
 }

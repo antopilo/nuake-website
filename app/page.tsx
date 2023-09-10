@@ -3,6 +3,7 @@ import { Navbar } from '@/components/navbar'
 import styles from "./page.module.css"
 import { Fira_Mono, Poppins } from 'next/font/google'
 import previewImage from "@/public/preview.png"
+import { Footer } from '@/components/footer'
 
 const poppins = Poppins({subsets: ['latin'], weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900']})
 export default function Home() {
@@ -10,7 +11,9 @@ export default function Home() {
     <main>
       <Navbar/>
       <div className={styles.jumbotron}>
+      
         <img className={styles.icon} src="/icon.svg"/>
+        
 
         <p className={styles.megaText}>
           <span className={styles.quote}>“</span>
@@ -40,14 +43,14 @@ export default function Home() {
                 Nuake supports hot-reloading level edition with trenchbroom. It also supports BSPs for better performance.
                 </p>
               </div>
-              <div className={styles.featureItemR}>
+              <div className={[styles.featureItemR, styles.featureImg].join(' ')}>
                 <Image style={{width: "100%"}} alt="Trenchbroom" src={previewImage}/>
               </div>
             </div>
 
             <div className={styles.featureItem}>
-              <div className={styles.featureItemL}>
-              <img src="/preview.png"></img>
+              <div className={[styles.featureItemL, styles.featureImg].join(' ')}>
+                <img src="/preview.png"></img>
               </div>
               <div className={styles.featureItemR}>
                 <p className={styles.featureName}>Jolt physics</p>
@@ -64,13 +67,13 @@ export default function Home() {
                   Increase your iteration times with Wren. An OSS object-oriented scripting language that is vastly superior than other scripting language like lua.
                 </p>
               </div>
-              <div className={styles.featureItemR}>
+              <div className={[styles.featureItemR, styles.featureImg].join(' ')}>
                 <img src="/preview.png"></img>
               </div>
             </div>
 
             <div className={styles.featureItem}>
-              <div className={styles.featureItemL}>
+              <div className={[styles.featureItemL, styles.featureImg].join(' ')}>
               <img src="/preview.png"></img>
               </div>
               <div className={styles.featureItemR}>
@@ -84,7 +87,7 @@ export default function Home() {
           </div>
       </div>
       
-      <div className={styles.faqWrapper}>
+      <div id="faq" className={styles.faqWrapper}>
         <div className={styles.faqContainer}>
           <p className={styles.faqTitle}>Frequently Asked Questions</p>
 
@@ -156,7 +159,7 @@ export default function Home() {
 
           
         </div>
-        <img className={styles.footer} src="/nuake-logo.svg"></img>
+        <Footer/>
       </div>
       
     </main>

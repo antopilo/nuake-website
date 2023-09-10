@@ -44,7 +44,33 @@ export const Doc = defineDocumentType(() => ({
     computedFields
 }))
 
+const syncContentFromCDN = async (contentDir) => {
+    const syncRun = async () => {
+        const url = 'https://cdn.antopilo.dev/blog'
+        
+    }
+
+    let wasCancelled = false
+    let syncInterval
+
+    const syncLoop = async () => {
+        await syncRun()
+
+        if(wasCancelled) return;
+
+        syncInterval = setTimeout(syncLoop, 1000 * 60);
+    }
+
+    await syncLoop()
+
+    return () => {
+        wasCancelled = true;
+        clearTimeout(syncInterval)
+    }
+}
+
 export default makeSource({
+    syncFiles: syncContentFromCDN,
     contentDirPath: 'content',
     documentTypes: [Doc],
     mdx: {

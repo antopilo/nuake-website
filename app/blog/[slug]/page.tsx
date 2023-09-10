@@ -7,6 +7,7 @@ import { BlogHeader } from '@/components/blog-header'
 import { BlogBody } from "@/components/blogBody"
 import { Navbar } from '@/components/navbar'
 import { Metadata } from 'next/dist/lib/metadata/types/metadata-interface'
+import { Footer } from '@/components/footer'
 interface PageProps {
     params: {
         slug: string
@@ -45,7 +46,9 @@ const page: FC<PageProps> = async ({ params }: PageProps) => {
             author={doc.author}
         />
         <BlogBody code={doc.body.code} />
+        <Footer/>
         </div>
+        
     )
 }
 

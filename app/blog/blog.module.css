@@ -98,10 +98,31 @@
 
 .blogItem:hover {
     bottom: 8px;
+    
+}
+
+@media (max-width: 640px)
+{
+    .mainBlogItem
+     {
+        width: auto;
+        margin-left: 32px; 
+        margin-right: 32px !important; 
+     }
+
+    .blogItem {
+        padding-left: 32px; 
+        padding-right: 32px; 
+        flex-direction: column !important;
+    }
+
+    .blogItemImg {
+        margin-right: 0px !important; 
+        margin-bottom: 16px;
+    }
 }
 
 .blogItemImg {
-    background-image: url("/preview.png");
     background-size: cover;
     height: 300px;
     min-width: 300px;
