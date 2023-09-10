@@ -6,11 +6,22 @@ import { notFound} from 'next/navigation'
 import { BlogHeader } from '@/components/blog-header'
 import { BlogBody } from "@/components/blogBody"
 import { Navbar } from '@/components/navbar'
+import { Metadata } from 'next/dist/lib/metadata/types/metadata-interface'
 interface PageProps {
     params: {
         slug: string
     }
 }
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+    // read route params then fetch data
+        // return an object
+        const doc = await getDocFromParams(params.slug)
+        return {
+            title: "Nuake Engine - " + doc.title,
+            description: doc.description,
+        };
+    }
 
 async function getDocFromParams(slug: string) {
     const doc = allDocs.find((doc) => doc.slugAsParams === slug)

@@ -1,5 +1,16 @@
 import { Navbar } from "@/components/navbar"
 import styles from "./blog.module.css"
+import Link from "next/link"
+import { Metadata } from "next/dist/lib/metadata/types/metadata-interface";
+
+export async function generateMetadata(): Promise<Metadata> {
+// read route params then fetch data
+    // return an object
+    return {
+        title: "Nuake Engine - news",
+        description: "The latest news about Nuake engine",
+    };
+}
 
 export default function BlogPage () {
     const newBlog = {
@@ -22,7 +33,7 @@ export default function BlogPage () {
     for(let i = 0; i < blogPosts.length; i++)
     {
         blogHtml.push(
-            <a href={blogPosts[i].url}>
+            <Link href={blogPosts[i].url}>
                         <div className={styles.blogItem}>
                             <div className={styles.blogItemImg}></div>
                             <div className={styles.blogItemRight}>
@@ -33,7 +44,7 @@ export default function BlogPage () {
                                 <p className={styles.cardDesc}>{blogPosts[i].desc}</p>
                             </div>
                         </div>
-                    </a>
+                    </Link>
         )
     }
     return ( 
@@ -41,7 +52,7 @@ export default function BlogPage () {
             <Navbar />
             <div className={styles.blogPageWrapper}>
                 <div className={styles.blogPageContainer}>
-                    <a href="/blog/blog-test">
+                    <Link href="/blog/blog-test">
                         <div className={styles.mainBlogItem}>
                             <div className={styles.dateLabelMain}>
                                 <p className={styles.dateLabelText}>{newBlog.date}</p>
@@ -51,7 +62,7 @@ export default function BlogPage () {
                                 <p className={styles.cardDesc}>{newBlog.desc}</p>
                             </div>
                         </div>
-                    </a>
+                    </Link>
 
                     {blogHtml}
                 </div>

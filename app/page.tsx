@@ -2,8 +2,9 @@ import Image from 'next/image'
 import { Navbar } from '@/components/navbar'
 import styles from "./page.module.css"
 import { Fira_Mono, Poppins } from 'next/font/google'
-const poppins = Poppins({subsets: ['latin'], weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900']})
+import previewImage from "@/public/preview.png"
 
+const poppins = Poppins({subsets: ['latin'], weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900']})
 export default function Home() {
   return (
     <main>
@@ -27,7 +28,7 @@ export default function Home() {
           </div>
         </a>
 
-        <img src="/preview.png" className={styles.previewImg}/>
+        <Image src={previewImage} style={{width: "100%"}} className={styles.previewImg} alt="Editor"/>
       </div>
       <div className={styles.featureSection}>
           <div className={styles.featureList}>
@@ -40,7 +41,7 @@ export default function Home() {
                 </p>
               </div>
               <div className={styles.featureItemR}>
-                <img src="/preview.png"></img>
+                <Image style={{width: "100%"}} alt="Trenchbroom" src={previewImage}/>
               </div>
             </div>
 

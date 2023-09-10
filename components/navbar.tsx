@@ -7,14 +7,14 @@ export function Navbar() {
   return (
     <div className={styles.navbarWrapper}>
         <div className={styles.navbarContainer}> 
-        <a href="/">
+        <Link href="/">
             <img className={styles.logo} src="/nuake-logo.svg" />
-        </a>
+        </Link>
         <div className={styles.navigation}>
-            <a href="/" className={styles.navLink}>home</a>
-            <a href="/blog" className={styles.navLink}>news</a>
-            <a href="/#faq" className={styles.navLink}>faq</a>
-            <a href="https://discord.gg/VdR3E8HNec" className={styles.navLink}><img className={styles.navIcon} src="/discord.svg"/></a>
+            <Link href="/" className={styles.navLink}>home</Link>
+            <Link href="/blog" className={styles.navLink}>news</Link>
+            <Link href="/#faq" className={styles.navLink}>faq</Link>
+            <Link href="https://discord.gg/VdR3E8HNec" className={styles.navLink}><img className={styles.navIcon} src="/discord.svg"/></Link>
         </div>
         </div>
 
