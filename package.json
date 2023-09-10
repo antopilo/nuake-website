@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build content": "yarn contentlayer build",
-    "push image": "docker build -t antopilo/nuake-website-web . --no-cache && docker push antopilo/nuake-website-web;",
+    "push image": "docker build -t antopilo/nuake-website-web . --no-cache && docker push antopilo/nuake-website-web",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",

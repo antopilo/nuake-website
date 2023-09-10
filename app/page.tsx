@@ -4,6 +4,7 @@ import styles from "./page.module.css"
 import { Fira_Mono, Poppins } from 'next/font/google'
 import previewImage from "@/public/preview.png"
 import { Footer } from '@/components/footer'
+import Link from 'next/link'
 
 const poppins = Poppins({subsets: ['latin'], weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900']})
 export default function Home() {
@@ -25,13 +26,13 @@ export default function Home() {
           Built upon time-tested technologies with a modern flavor. Nuake is in active development and is ever-evolving.
         </p>
 
-        <a href="/">
+        <Link href="#download">
           <div className={styles.joinBtn}>
-            coming soon
+            download
           </div>
-        </a>
+        </Link>
 
-        <Image src={previewImage} style={{width: "100%"}} className={styles.previewImg} alt="Editor"/>
+        <Image src={previewImage} style={{width: "100%"}} className={styles.previewImg} alt="Editor" placeholder='blur'/>
       </div>
       <div className={styles.featureSection}>
           <div className={styles.featureList}>
@@ -44,7 +45,7 @@ export default function Home() {
                 </p>
               </div>
               <div className={[styles.featureItemR, styles.featureImg].join(' ')}>
-                <Image style={{width: "100%"}} alt="Trenchbroom" src={previewImage}/>
+                <Image style={{width: "100%"}} alt="Trenchbroom" src={previewImage} placeholder='blur'/>
               </div>
             </div>
 
@@ -126,11 +127,14 @@ export default function Home() {
             Crashes and bugs are to be expected until we hit our current alpha goals, feel free to report your crashes and reproduction steps on the github.
           </p>
 
-          <p className={styles.faqQuestion}>
-            Why?   
+          <p id="download" className={styles.faqQuestion}>
+            Where can I download it?   
           </p>
           <p className={[styles.faqAnswer, poppins.className].join(" ")}>
-            Why not? 🙂
+            You can download Nuake on the github repository, there is no guarantee that it won't crash on startup until we hit <i>alpha</i>. 
+            If you still want to download it and play with it, we assume that you know what you are doing or that you are interested in contributing to the project. 
+            <br/><br/>
+            You have been warned: <Link style={{color: '#6100FF', textDecoration: 'underline'}} target='_blank' href="https://www.github.com/antopilo/nuake">download</Link>
           </p>
 
 
