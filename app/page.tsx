@@ -28,7 +28,7 @@ export default function Home() {
 
         <Link href="#download">
           <div className={styles.joinBtn}>
-            download
+            Download
           </div>
         </Link>
 
