@@ -13,38 +13,47 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function BlogPage () {
-    const newBlog = {
-        "name": "Hello World",
-        "date": "Saturday, August 9, 2023",
-        "desc": "Website is live!",
-        "url": '/blog/blog-test'
-    }
     const blogPosts = [
         {
+            "name": "Hello World",
+            "date": "Saturday, August 9, 2023",
+            "desc": "Website is now live!",
+            "url": '/blog/website',
+            "img_preview": 'https://cdn.antopilo.dev/RAYTRACER.png',
+        },
+        {
+            "name": "Bones & skeletons",
+            "date": "Monday, July 26, 2023",
+            "desc": "New skeletal animation system and what's next",
+            "url": '/blog/bones-and-skeletons',
+            "img_preview": 'http://cdn.antopilo.dev/blogPreviews/nuakeSkeleton.png',
+        },
+        {
             "name": "Sprites & billboards",
-            "date": "Sprites & billbsoards",
+            "date": "Tuesday, July 5, 2023",
             "desc": "New 3D sprite system and billboard behavior",
-            "url": '/blog/blog-tests'
+            "url": '/blog/sprites-and-billboards',
+            "img_preview": 'http://cdn.antopilo.dev/blogPreviews/nuakeBillboard.png',
         }
     ]
 
     let blogHtml = []
 
-    for(let i = 0; i < blogPosts.length; i++)
+    for(let i = 1; i < blogPosts.length; i++)
     {
         blogHtml.push(
             <Link href={blogPosts[i].url}>
-                        <div className={styles.blogItem}>
-                            <div className={styles.blogItemImg}></div>
-                            <div className={styles.blogItemRight}>
-                                <div className={styles.dateLabel}>
-                                    <p className={styles.dateLabelText}>{blogPosts[i].date}</p>
-                                </div>
-                                <p className={styles.cardTitle}>{blogPosts[i].name}</p>
-                                <p className={styles.cardDesc}>{blogPosts[i].desc}</p>
-                            </div>
+                <div className={styles.blogItem}>
+                    <div style={{backgroundImage: `url(${blogPosts[i].img_preview})`}} className={styles.blogItemImg}></div>
+                    <div className={styles.blogItemRight}>
+                        <div className={styles.dateLabel}>
+                            <p className={styles.dateLabelText}>{blogPosts[i].date}</p>
                         </div>
-                    </Link>
+                        <p className={styles.cardTitle}>{blogPosts[i].name}</p>
+                        <p className={styles.cardDesc}>{blogPosts[i].desc}</p>
+                    </div>
+                </div>
+            </Link>
         )
     }
     return ( 
@@ -52,14 +61,14 @@ export default function BlogPage () {
             <Navbar />
             <div className={styles.blogPageWrapper}>
                 <div className={styles.blogPageContainer}>
-                    <Link href="/blog/blog-test">
-                        <div className={styles.mainBlogItem}>
+                    <Link href={blogPosts[0].url}>
+                        <div style={{backgroundImage: `url(${blogPosts[0].img_preview})`}} className={styles.mainBlogItem}>
                             <div className={styles.dateLabelMain}>
-                                <p className={styles.dateLabelText}>{newBlog.date}</p>
+                                <p className={styles.dateLabelText}>{blogPosts[0].date}</p>
                             </div>
                             <div className={styles.cardBottom}>
-                                <p className={styles.cardTitle}>{newBlog.name}</p>
-                                <p className={styles.cardDesc}>{newBlog.desc}</p>
+                                <p className={styles.cardTitle}>{blogPosts[0].name}</p>
+                                <p className={styles.cardDesc}>{blogPosts[0].desc}</p>
                             </div>
                         </div>
                     </Link>

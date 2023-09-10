@@ -24,7 +24,7 @@ export default function Home() {
 
         <a href="/">
           <div className={styles.joinBtn}>
-            enter alpha
+            coming soon
           </div>
         </a>
 

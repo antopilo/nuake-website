@@ -20,7 +20,6 @@
     width: 100%;
     border-radius: 8px;
     height: 400px;
-    background-image: url("/preview.png");
     background-size: cover;
     display: flex;
     flex-direction: column;
@@ -114,4 +113,5 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    width: 100%;
 }
