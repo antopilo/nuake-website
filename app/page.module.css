@@ -16,7 +16,7 @@
 
 .megaText {
     text-align: center;
-    font-family: Fira Mono;
+    font-family: var(--font-fira-poppins);
     font-size: 40px;
     font-style: normal;
     font-weight: 700;
@@ -25,9 +25,11 @@
 }
 
 .quote {
-    color: rgba(217, 217, 217, 0.25) !important;
-    background: #00000000;
-    background-clip:initial;
+    background: rgba(80, 80, 80, 9);
+    -webkit-text-fill-color: rgba(80, 80, 80, 1);
+    color: rgba(80, 80, 80, 1);
+    -webkit-background-clip: text;
+    background-clip: text;
 }
 
 .megaText {
@@ -36,9 +38,10 @@
 
 .megaText::first-line {
     background: linear-gradient(270deg, #00FD84 -1.15%, #FF19FF 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
 }
 
 .subText {
@@ -108,6 +111,10 @@
     flex-direction: row;
     justify-content: space-between;
     margin-bottom: 112px;
+}
+
+.desc {
+    font-family: var(--font-fira-poppins);
 }
 
 .featureItemR {

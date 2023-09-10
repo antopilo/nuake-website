@@ -1,6 +1,8 @@
 import Image from 'next/image'
 import { Navbar } from '@/components/navbar'
 import styles from "./page.module.css"
+import { Fira_Mono, Poppins } from 'next/font/google'
+const poppins = Poppins({subsets: ['latin'], weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900']})
 
 export default function Home() {
   return (
@@ -15,7 +17,7 @@ export default function Home() {
           <span className={styles.quote}>”</span>
         </p>
 
-        <p className={styles.subText}>
+        <p className={[styles.subText, poppins.className].join(" ")}>
           Built upon time-tested technologies with a modern flavor. Nuake is in active development and is ever-evolving.
         </p>
 
@@ -33,7 +35,7 @@ export default function Home() {
             <div className={styles.featureItem}>
               <div className={styles.featureItemL}>
                 <p className={styles.featureName}>Trenchbroom integration</p>
-                <p className={styles.desc}>
+                <p className={[styles.desc, poppins.className].join(" ")}>
                 Nuake supports hot-reloading level edition with trenchbroom. It also supports BSPs for better performance.
                 </p>
               </div>
@@ -48,7 +50,7 @@ export default function Home() {
               </div>
               <div className={styles.featureItemR}>
                 <p className={styles.featureName}>Jolt physics</p>
-                <p className={styles.desc}>
+                <p className={[styles.desc, poppins.className].join(" ")}>
                   Harness the power of one of the newest physics engine available featured in modern game engines that has shipped in games like Horizon Zero Dawn.
                 </p>
               </div>
@@ -57,7 +59,7 @@ export default function Home() {
             <div className={styles.featureItem}>
               <div className={styles.featureItemL}>
                 <p className={styles.featureName}>Wren scripting</p>
-                <p className={styles.desc}>
+                <p className={[styles.desc, poppins.className].join(" ")}>
                   Increase your iteration times with Wren. An OSS object-oriented scripting language that is vastly superior than other scripting language like lua.
                 </p>
               </div>
@@ -72,12 +74,12 @@ export default function Home() {
               </div>
               <div className={styles.featureItemR}>
                 <p className={styles.featureName}>Modern Rendering</p>
-                <p className={styles.desc}>
+                <p className={[styles.desc, poppins.className].join(" ")}>
                   Nuake features a modern renderer that is capable of rendering high-fidelity graphics with modern post-processing effects. You can customize the render pipeline to achieve the look you want.
                 </p>
               </div>
             </div>
-            <h1>And more!</h1>
+            <h1 className={poppins.className}>And more!</h1>
           </div>
       </div>
       
@@ -88,42 +90,42 @@ export default function Home() {
           <p className={styles.faqQuestion}>
             When will it be done? 
           </p>
-          <p className={styles.faqAnswer}>
+          <p className={[styles.faqAnswer, poppins.className].join(" ")}>
             Probably never, we have a roadmap that helps us plan our goals. Our current goal is to be able to remake Quake inside of Nuake. 
           </p>
 
-          <p className={styles.faqQuestion}>
+          <p className={[styles.faqQuestion].join(" ")}>
             Is it free? 
           </p>
-          <p className={styles.faqAnswer}>
+          <p className={[styles.faqAnswer, poppins.className].join(" ")}>
             Nuake is currently free and open-source.
           </p>
 
           <p className={styles.faqQuestion}>
             Can I make my game in Nuake? 
           </p>
-          <p className={styles.faqAnswer}>
+          <p className={[styles.faqAnswer, poppins.className].join(" ")}>
             We are currently not in alpha, meaning that it is not recommended to make games with Nuake at the moment. Feel free to check it out and play with it, but it is currently heavily in development and breaking changes are to be expected until we hit alpha. 
           </p>
 
           <p className={styles.faqQuestion}>
             What are the minimum requirements?  
           </p>
-          <p className={styles.faqAnswer}>
+          <p className={[styles.faqAnswer, poppins.className].join(" ")}>
             No minimum system requirements have been determined at the moment. At the very least, your GPU should support OpenGL 4.5.
           </p>
 
           <p className={styles.faqQuestion}>
             It keeps crashing!  
           </p>
-          <p className={styles.faqAnswer}>
+          <p className={[styles.faqAnswer, poppins.className].join(" ")}>
             Crashes and bugs are to be expected until we hit our current alpha goals, feel free to report your crashes and reproduction steps on the github.
           </p>
 
           <p className={styles.faqQuestion}>
             Why?   
           </p>
-          <p className={styles.faqAnswer}>
+          <p className={[styles.faqAnswer, poppins.className].join(" ")}>
             Why not? 🙂
           </p>
 

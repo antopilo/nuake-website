@@ -3,9 +3,9 @@ import styles from "./blog.module.css"
 
 export default function BlogPage () {
     const newBlog = {
-        "name": "Particle system",
-        "date": "Monday, July 20, 2023",
-        "desc": "New particle system now available on master",
+        "name": "Hello World",
+        "date": "Saturday, August 9, 2023",
+        "desc": "Website is live!",
         "url": '/blog/blog-test'
     }
     const blogPosts = [
@@ -54,8 +54,8 @@ export default function BlogPage () {
                     </a>
 
                     {blogHtml}
-
                 </div>
+                <p style={{marginTop: "100px", marginBottom: "100px"}}>More to come 🚧</p>
             </div>
         </div>
     )
