@@ -1,5 +1,4 @@
-import { FC } from 'react'
-import { Navbar } from '@/components/navbar'
+import { Navbar } from "@/components/navbar"
 import styles from "./blog.module.css"
 
 export default function BlogPage () {
@@ -12,12 +11,31 @@ export default function BlogPage () {
     const blogPosts = [
         {
             "name": "Sprites & billboards",
-            "date": "Sprites & billboards",
+            "date": "Sprites & billbsoards",
             "desc": "New 3D sprite system and billboard behavior",
-            "url": '/blog/blog-test'
+            "url": '/blog/blog-tests'
         }
     ]
 
+    let blogHtml = []
+
+    for(let i = 0; i < blogPosts.length; i++)
+    {
+        blogHtml.push(
+            <a href={blogPosts[i].url}>
+                        <div className={styles.blogItem}>
+                            <div className={styles.blogItemImg}></div>
+                            <div className={styles.blogItemRight}>
+                                <div className={styles.dateLabel}>
+                                    <p className={styles.dateLabelText}>{blogPosts[i].date}</p>
+                                </div>
+                                <p className={styles.cardTitle}>{blogPosts[i].name}</p>
+                                <p className={styles.cardDesc}>{blogPosts[i].desc}</p>
+                            </div>
+                        </div>
+                    </a>
+        )
+    }
     return ( 
         <div>
             <Navbar />
@@ -35,20 +53,7 @@ export default function BlogPage () {
                         </div>
                     </a>
 
-                    {blogPosts.map((blogPost) => (
-                        <a href={blogPost.url}>
-                        <div className={styles.blogItem}>
-                            <div className={styles.blogItemImg}></div>
-                            <div className={styles.blogItemRight}>
-                                <div className={styles.dateLabel}>
-                                    <p className={styles.dateLabelText}>{blogPost.date}</p>
-                                </div>
-                                <p className={styles.cardTitle}>{blogPost.name}</p>
-                                <p className={styles.cardDesc}>{blogPost.desc}</p>
-                            </div>
-                        </div>
-                    </a>
-                    ))}
+                    {blogHtml}
 
                 </div>
             </div>
