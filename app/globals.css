@@ -34,6 +34,15 @@ p {
   line-height: normal;
 }
 
+ul {
+  color: #bbbbbb;
+  font-family: var(--font-fira-poppins);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
 img {
   border-radius: 8px;
 }

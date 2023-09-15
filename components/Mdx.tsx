@@ -79,7 +79,8 @@ const components = {
     />
   ),
   ul: ({ className, ...props } : React.HTMLAttributes<HTMLUListElement>) => (
-    <ul className={cn("my-6 ml-6 list-disc", className)} {...props} />
+    <ul className={[cn("ml-6 list-disc", className), poppins.className].join(" ")} {...props}
+    style={{padding: '8px 32px 16px 32px', fontSize: 15}} />
   ),
   ol: ({ className, ...props } : React.HTMLAttributes<HTMLOListElement>) => (
     <ol className={cn("my-6 ml-6 list-decimal", className)} {...props} />

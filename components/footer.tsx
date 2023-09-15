@@ -6,6 +6,6 @@ import styles from './footer.module.css'
 
 export function Footer() {
   return (
-    <img className={styles.footer} src="/nuake-logo.svg"></img>
+    <img alt="Nuake Logo" className={styles.footer} src="/nuake-logo.svg"></img>
   )
 }

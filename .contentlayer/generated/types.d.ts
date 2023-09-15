@@ -18,6 +18,7 @@ export type Doc = {
   date: string
   published: boolean
   author: string
+  img: string
   /** MDX file body */
   body: MDX
   slug: string

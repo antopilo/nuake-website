@@ -39,6 +39,10 @@ export const Doc = defineDocumentType(() => ({
         author: {
             type: 'string',
             required: true
+        },
+        img: {
+            type: 'string',
+            default: 'https://cdn.antopilo.dev/images/nuakebanner.png'
         }
     },
     computedFields

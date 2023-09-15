@@ -13,7 +13,7 @@ export default function Home() {
       <Navbar/>
       <div className={styles.jumbotron}>
       
-        <img className={styles.icon} src="/icon.svg"/>
+        <img alt="Nuake Icon" className={styles.icon} src="/icon.svg"/>
         
 
         <p className={styles.megaText}>
@@ -26,13 +26,13 @@ export default function Home() {
           Built upon time-tested technologies with a modern flavor. Nuake is in active development and is ever-evolving.
         </p>
 
-        <Link href="#download">
+        <Link href="#download" aria-label='Download link'>
           <div className={styles.joinBtn}>
             Download
           </div>
         </Link>
 
-        <Image src={previewImage} style={{width: "100%"}} className={styles.previewImg} alt="Editor" placeholder='blur'/>
+        <Image priority={true} src={previewImage} style={{width: "100%"}} className={styles.previewImg} alt="Editor Preview" placeholder='blur'/>
       </div>
       <div className={styles.featureSection}>
           <div className={styles.featureList}>
@@ -51,7 +51,7 @@ export default function Home() {
 
             <div className={styles.featureItem}>
               <div className={[styles.featureItemL, styles.featureImg].join(' ')}>
-                <img src="/preview.png"></img>
+                <img alt="Jolt Physics Image" src="/preview.png"></img>
               </div>
               <div className={styles.featureItemR}>
                 <p className={styles.featureName}>Jolt physics</p>
@@ -69,13 +69,13 @@ export default function Home() {
                 </p>
               </div>
               <div className={[styles.featureItemR, styles.featureImg].join(' ')}>
-                <img src="/preview.png"></img>
+                <img alt="Wren Scripting Image" src="/preview.png"></img>
               </div>
             </div>
 
             <div className={styles.featureItem}>
               <div className={[styles.featureItemL, styles.featureImg].join(' ')}>
-              <img src="/preview.png"></img>
+              <img alt="Rendering Image" src="/preview.png"></img>
               </div>
               <div className={styles.featureItemR}>
                 <p className={styles.featureName}>Modern Rendering</p>
@@ -134,7 +134,7 @@ export default function Home() {
             You can download Nuake on the github repository, there is no guarantee that it won't crash on startup until we hit <i>alpha</i>. 
             If you still want to download it and play with it, we assume that you know what you are doing or that you are interested in contributing to the project. 
             <br/><br/>
-            You have been warned: <Link style={{color: '#6100FF', textDecoration: 'underline'}} target='_blank' href="https://www.github.com/antopilo/nuake">download</Link>
+            You have been warned: <Link aria-label='Nuake github link' style={{color: '#6100FF', textDecoration: 'underline'}} target='_blank' href="https://www.github.com/antopilo/nuake">download</Link>
           </p>
 
 
@@ -156,7 +156,7 @@ export default function Home() {
             <br/>
             While Nuake is not at that point <i>yet</i>, I heavily encourage you to check out the quake mapping community by joining their discord: <br/>
             <br/>
-            <u><a href="https://discord.gg/Zrczfg2NCD">https://discord.gg/Zrczfg2NCD</a></u> <br/>
+            <u><a aria-label='Quake mapping discord link' href="https://discord.gg/Zrczfg2NCD">https://discord.gg/Zrczfg2NCD</a></u> <br/>
             <br/>
             Thank you❤️
           </p>

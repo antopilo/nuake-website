@@ -17,22 +17,22 @@ export default function BlogPage () {
     const blogPosts = [
         {
             "name": "Hello World",
-            "date": "Saturday, August 9, 2023",
-            "desc": "Website is now live!",
+            "date": "Friday, September 15, 2023",
+            "desc": "Nuake is now live on the internet🌎",
             "url": '/blog/website',
-            "img_preview": 'https://cdn.antopilo.dev/RAYTRACER.png',
+            "img_preview": 'https://cdn.antopilo.dev/images/nuakebannerc.png',
         },
         {
             "name": "Bones & skeletons",
-            "date": "Monday, July 26, 2023",
-            "desc": "New skeletal animation system and what's next",
+            "date": "Friday, September 8, 2023",
+            "desc": "Nuake now supports basic skeletal animations 🦴",
             "url": '/blog/bones-and-skeletons',
             "img_preview": 'http://cdn.antopilo.dev/blogPreviews/nuakeSkeleton.png',
         },
         {
             "name": "Sprites & billboards",
-            "date": "Tuesday, July 5, 2023",
-            "desc": "New 3D sprite system and billboard behavior",
+            "date": "Saturday, August 5, 2023",
+            "desc": "New 3D sprite system and billboard behaviour🖼️",
             "url": '/blog/sprites-and-billboards',
             "img_preview": 'http://cdn.antopilo.dev/blogPreviews/nuakeBillboard.png',
         }
@@ -64,7 +64,7 @@ export default function BlogPage () {
             <div className={styles.blogPageWrapper}>
                 <div className={styles.blogPageContainer}>
                     <Link href={blogPosts[0].url}>
-                        <div style={{backgroundImage: `url(${blogPosts[0].img_preview})`}} className={styles.mainBlogItem}>
+                        <div style={{backgroundImage: `url(${blogPosts[0].img_preview})`, backgroundSize: "contain"}} className={styles.mainBlogItem}>
                             <div className={styles.dateLabelMain}>
                                 <p className={styles.dateLabelText}>{blogPosts[0].date}</p>
                             </div>

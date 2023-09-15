@@ -8,6 +8,7 @@ import { BlogBody } from "@/components/blogBody"
 import { Navbar } from '@/components/navbar'
 import { Metadata } from 'next/dist/lib/metadata/types/metadata-interface'
 import { Footer } from '@/components/footer'
+
 interface PageProps {
     params: {
         slug: string
@@ -21,6 +22,26 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         return {
             title: "Nuake Engine - " + doc.title,
             description: doc.description,
+            openGraph: {
+                description: doc.description,
+                images: [
+                    {
+                        url: doc.img,
+                        width: 800,
+                        height: 600
+                    }
+                ]
+            },
+            twitter: {
+                description: doc.description,
+                images: [
+                    {
+                        url: doc.img,
+                        width: 800,
+                        height: 600
+                    }
+                ]
+            }
         };
     }
 

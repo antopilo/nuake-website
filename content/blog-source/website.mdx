@@ -5,6 +5,68 @@ date: Monday, August 11, 2023
 author: Antoine Pilote
 ---
 
-# The website is now live
-Hi👋
+# The website is now live🔴
+Nuake now has an official blog and a web presence outside of the discord(Wooo! 🥳).
+This blog section will now be the main ways that Nuake news will be communicated! 
+Of course, I will keep posting on the discord server and can answer questions there but this website will now be the *official* place for Nuake related news.
 
+> If you'd like to join the discord server, there is a discord link in the navigation bar
+
+
+# What is Nuake?
+![Nuake Banner](https://cdn.antopilo.dev/images/nuakebanner.png)
+
+I guess it would be a good idea to give some context as to *what* is Nuake.
+
+Nuake is a game engine that focuses on Trenchbroom integration and Quake-inspired workflow but has modern features and a simple user interface. 
+This is mainly a response to the current `Trenchbroom -> Unity/Godot` workflow which I personally found to be a great concept, but still had too much friction in the workflow.
+
+The concept is that it tries to be a modern successor of the Quake engine for developers who want to make boomer shooters(Also, any kind of game really) using trenchbroom. 
+In addition, it should support modern formats like `gltf` while also seamlessly supporting `wads`.
+The physics engine is `Jolt` which has been used in Horizon Zero Dawn. The renderer supports PBR materials while also allowing for simpler materials. 
+
+###### Here is a short bulletpoint of the features:
+- ECS(with parenting)
+- Prefab system
+- `.map` support for levels(`.bsp` coming)
+- Modern physics engine using `Jolt`
+- PBR materials(`wads` coming)
+- PostFX(Bloom, SSAO, SSR, Atmosphere Simulation, more to come)
+- Skeletal Animations(Early in developement)
+- Particle System(Early in developement)
+- Spatialized Audio(Early in developement)
+- Pathfinding(Planned)
+
+# Sounds great! How do I get started?
+For now, Nuake is in early development as I've been working by myself, in my free time for more than two years.
+Recently, I've started getting contribution from generous people like @emerycp on Github which is greatly appreciated. 
+We are always looking for more contributors, if that sounds like you, you should come say hi in the discord server!
+
+If you are a game developer, and you'd like to start testing the engine, you can try it out yourself from the Github repository.
+You should expect crashes, and breaking changes since we currently do not have a release system in place and is constantly moving.
+> You can access the Github repository from the navigation bar. 
+
+
+# Roadmap🗺️
+Our current goal, is to be feature complete in order to enter the alpha stage. The current features missing to be considered feature complete are mainly Audio related.
+Once we are feature complete, we can enter alpha when we are in a position where we can recreate quake features.
+
+
+![Jira Roadmap](https://cdn.antopilo.dev/images/nuake-roadmap.png)
+> The current Jira roadmap
+
+# Trenchbroom integration? 🔌
+If you're curious about what "trenchbroom integration" means, this is for you!
+Nuake's recommended level editor is Trenchbroom which is an awesome open-source quake(and more) level editor. 
+Well, the integration part of Trenchbroom is that the engine will generate a `gameconfig` for trenchbroom while will display all of your prefabs in trenchbroom directly(your textures as well).
+Nuake also ingest `.map` files directly in order to generate the geometry and collision meshes. It is also planned very soon to feature live-reload, so as soon as you will save your maps
+in Trenchbroom, they will automatically update in the engine itself.
+
+Another side-effect of that system is that users will be able to create maps for your game without you needing to expose your assets(or more than you are willing)! Giving out the gameconfig file is the only necessary part for allowing users to create awesome maps for your game.
+
+# Reach out✉️
+If you'd like to know more about the project, you should join the discord server! I will answer any questions you might have :)
+
+Thank you✨,
+
+Antoine
