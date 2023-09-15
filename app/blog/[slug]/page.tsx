@@ -23,7 +23,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
             title: "Nuake Engine - " + doc.title,
             description: doc.description,
             openGraph: {
+                siteName: "Nuake Engine",
                 description: doc.description,
+                title: doc.title + " - Nuake Engine",
                 images: [
                     {
                         url: doc.img,
@@ -34,10 +36,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
             },
             twitter: {
                 description: doc.description,
+                title: doc.title + " - Nuake Engine",
                 images: [
                     {
                         url: doc.img,
-                        width: 800,
+                        width: 700,
                         height: 600
                     }
                 ]
