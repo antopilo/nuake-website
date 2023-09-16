@@ -45,13 +45,37 @@ export default function Home() {
                 </p>
               </div>
               <div className={[styles.featureItemR, styles.featureImg].join(' ')}>
-                <Image style={{width: "100%"}} alt="Trenchbroom" src={previewImage} placeholder='blur'/>
+                <video style={{width: "100%"}}  src="https://cdn.antopilo.dev/nuakeTB.mp4" loop muted autoPlay placeholder='blur'/>
               </div>
             </div>
 
             <div className={styles.featureItem}>
               <div className={[styles.featureItemL, styles.featureImg].join(' ')}>
-                <img alt="Jolt Physics Image" src="/preview.png"></img>
+              <img alt="Rendering Image" src="https://cdn.antopilo.dev/nuakeGraphics.png"></img>
+              </div>
+              <div className={styles.featureItemR}>
+                <p className={styles.featureName}>Modern Rendering</p>
+                <p className={[styles.desc, poppins.className].join(" ")}>
+                  Nuake features a modern renderer that is capable of rendering high-fidelity graphics with modern post-processing effects. You can customize the render pipeline to achieve the look you want.
+                </p>
+              </div>
+            </div>
+
+            <div className={styles.featureItem}>
+              <div className={styles.featureItemL}>
+                <p className={styles.featureName}>Wren scripting</p>
+                <p className={[styles.desc, poppins.className].join(" ")}>
+                  Increase your iteration times with Wren. An open-source object-oriented scripting language that is vastly superior than other scripting language like lua.
+                </p>
+              </div>
+              <div className={[styles.featureItemR, styles.featureImg].join(' ')}>
+                <video style={{width: "100%"}}  src="https://cdn.antopilo.dev/nuakeScript.mp4" loop muted autoPlay placeholder='blur'/>
+              </div>
+            </div>
+
+            <div className={styles.featureItem}>
+              <div className={[styles.featureItemL, styles.featureImg].join(' ')}>
+              <video style={{width: "100%"}}  src="https://cdn.antopilo.dev/nuakePhysics.mp4" loop muted autoPlay placeholder='blur'/>
               </div>
               <div className={styles.featureItemR}>
                 <p className={styles.featureName}>Jolt physics</p>
@@ -61,29 +85,6 @@ export default function Home() {
               </div>
             </div>
 
-            <div className={styles.featureItem}>
-              <div className={styles.featureItemL}>
-                <p className={styles.featureName}>Wren scripting</p>
-                <p className={[styles.desc, poppins.className].join(" ")}>
-                  Increase your iteration times with Wren. An OSS object-oriented scripting language that is vastly superior than other scripting language like lua.
-                </p>
-              </div>
-              <div className={[styles.featureItemR, styles.featureImg].join(' ')}>
-                <img alt="Wren Scripting Image" src="/preview.png"></img>
-              </div>
-            </div>
-
-            <div className={styles.featureItem}>
-              <div className={[styles.featureItemL, styles.featureImg].join(' ')}>
-              <img alt="Rendering Image" src="/preview.png"></img>
-              </div>
-              <div className={styles.featureItemR}>
-                <p className={styles.featureName}>Modern Rendering</p>
-                <p className={[styles.desc, poppins.className].join(" ")}>
-                  Nuake features a modern renderer that is capable of rendering high-fidelity graphics with modern post-processing effects. You can customize the render pipeline to achieve the look you want.
-                </p>
-              </div>
-            </div>
             <h1 className={poppins.className}>And more!</h1>
           </div>
       </div>
