@@ -65,7 +65,7 @@ export default function Home() {
               <div className={styles.featureItemL}>
                 <p className={styles.featureName}>Wren scripting</p>
                 <p className={[styles.desc, poppins.className].join(" ")}>
-                  Increase your iteration times with Wren. An open-source object-oriented scripting language that is vastly superior than other scripting language like lua.
+                  Increase your iteration times with Wren. An open-source object-oriented scripting language that is vastly superior than other scripting language like lua. C# Scripting is a planned feature as well.
                 </p>
               </div>
               <div className={[styles.featureItemR, styles.featureImg].join(' ')}>
