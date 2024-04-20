@@ -73,7 +73,7 @@ const components = {
   ),
   p: ({ className, ...props } : React.HTMLAttributes<HTMLParagraphElement>) => (
     <p
-      className={[cn("leading-7 [&:not(:first-child)]:mt-6", className), poppins.className].join(" ")}
+      className={[cn("leading-7 [not(:first-child)]:mt-6", className), poppins.className].join(" ")}
       style={{padding: '8px 32px 16px 32px', fontSize: 15}}
       {...props}
     />

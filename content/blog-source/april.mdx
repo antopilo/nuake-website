@@ -1,0 +1,198 @@
+---
+title: April 2025
+description: C#, Spatialized Audio, Triggers, Post-processing and a bunch more this month
+date: Saturday, April 20, 2025
+author: Antoine Pilote
+img: https://cdn.antopilo.dev/images/nuakeBanner.png
+---
+
+# Update
+
+It's been a while since the last blog post, but fear not, a lot has happened since then. I felt like I didn't have 
+enough features and improvements for a proper blog post for the last couple months. However, it quickly turned into having
+too much to write about. Anyway here are the cool new features and improvements that I implemented since the last update.
+
+**Features**
+- C# support
+- Spatialized Audio
+- Triggers
+- Post-processing
+- Trenchbroom Configurator
+- Runtime and game exports
+
+**improvements**
+- Material thumbnails
+- Wad Converter
+- Selection outline
+- Editor improvements
+
+# C# support 🧑🏼‍💻
+> This is a work in progress and it will probably change a bit while I'm fleshing out the feature
+
+This is a big one that I've been wanting for a while. 
+C# is an incredibly popular language for game development, so it only made sense to implement it.
+
+The experience of using a solid language in Nuake has been refreshing to say the least. Wren is still a solid 
+language that I want to support along side C#. 
+
+You can now generate a visual studio solution from the editor and Nuake will build your scripts before starting the game.
+
+There is still a lot to be done to make it good enough. It still has rough corners around making the user experience as smooth as it 
+could be, but I'm overall happy with how it's turning out.
+
+Here is a quick overview of how it works at the moment:
+
+```csharp
+using Nuake.Net;
+
+public class Player : Entity
+{
+    // Called when the entity spawns
+    public override void OnInit() {}
+
+    // Called every frame
+    public override void OnUpdate(float timestep) {}
+
+    // Called every fixed step
+    public override void OnFixedUpdate(float step) {}
+
+    // Called when the entity is killed
+    public override void OnExit() {}
+
+    // Optional physics callbacks
+    public override void OnCollision(Entity entity) {}
+}
+```
+
+What's neat with C# is that it allows to make an API that is clean and easy to use.
+
+For example, you can do something like this with the type checking:
+
+```csharp
+using Nuake.Net;
+
+public class Enemy : Entity 
+{
+    // ...
+
+    public void Damage(float amount) {}
+}
+
+public class Player : Entity 
+{
+    // ...
+    
+    public void Respawn() {}
+}
+
+public class SpikeTrap : Entity
+{
+
+    // ...
+
+    // Optional physics callbacks
+    public override void OnCollision(Entity entity) 
+    {
+        if(entity is Enemy)
+        {
+            (entity as Enemy).Damage(10.0f);
+        }
+        else if(entity is Player)
+        {
+            (entity as Player).Respawn();
+        }
+
+    }
+}
+```
+
+Another thing I want to experiment with is making a plugin API available in C#, which will allow anyone
+to extend the editor using C#. This is something I'm really excited about.
+
+# Spatialized Audio 🔊
+
+I didn't get to showcase any of the audio system in the past, but we have spatialized audio in.
+
+Using the `AudioEmitter` component in your scene, you can play audio globally or in 3D space.
+
+The active camera will be used as the listener. There is currently no audio mixer, but it is something that is planned.
+
+Audio effects will also be added along the mixer. The current library I'm using also enables me to place audio colliders but it's not a 
+priority at the moment.
+
+<video muted="false" controls loop="true" src="https://cdn.discordapp.com/attachments/872443937942540318/1154979817607934073/2023-09-22_23-12-24.mp4?ex=6635a8c7&is=662333c7&hm=995fc36d67191d3fe4312d3d1812dbb3ff5d06f6c29a60a3d1a65205bd265e91&"/>
+> Here you can hear two audio emitters placed around the scene
+
+# Triggers 🛜
+
+Using the different collider shapes available, you can place a shape and use it as a trigger.
+Along with that, you can now use collision callbacks in your scripts to trigger different events.
+
+For example, making a teleporter that moves the player when he enters the trigger.
+
+I made a small game the other day to test out the current state of the engine and ended up using triggers on weapons to register hits and it 
+worked out surprisingly well. Of course, the triggers move according to their parent, so the animations were driving the actual hitbox which is 
+very cool.
+
+<video muted="false" controls loop="true" src="https://cdn.discordapp.com/attachments/872443937942540318/1230921237601976422/Editor_qKyvp2W5vR.mp4?ex=663513bc&is=66229ebc&hm=9e0ee24f538becb05384e90c5f3106a78e6e1f9f4af04f8dea698fb25c2c995f&"/>
+> The hit detection is using triggers on the swords, and another trigger is placed under the level that respawns the enemies and the player.
+
+# Post processing 🖼️
+
+I've had time to work on rendering and adding new effects to the renderer. I've been wanting to 
+take prettier sceenshots for the website. Depth of field, barrel distortion and vignette has been added 
+as optional post-processes in the environment properties of every scene.
+
+There is an auto-focus feature for the depth of field but it's very jarring since it doesn't have any kind of smoothing when the focus changes.
+Nonetheless, it can make some pretty cool visuals.
+
+<img src="https://media.discordapp.net/attachments/852628987359658024/1158768976579543081/screenshot.png?ex=6630fcb4&is=661e87b4&hm=1fba4e4ad0bc376993f076e1ea8d8a89f9ff76e66bed11bd2835aa6478f955f1&=&format=webp&quality=lossless&width=926&height=486"/>
+> This screenshot features depth of field, reflections, AO, bloom, vignette and barrel distortion 
+
+## WAD converter ⚙️
+
+Trying to import quake maps into nuake has been a painfully slow process for far too long. Having to 
+manually convert WADs into images was necessary because only standard file formats are supported.
+
+I was on the fence on wheter or not I wanted to natively support WADs at runtime.
+The fact that I'm using PBR materials for rendering means that each material has various properties. 
+If I natively supported WADs then I would make those properties unavailable because a WAD only contains textures.
+
+I decided on making a converter that converts any WAD into a list of materials. All of this available in the file browser by 
+right-clicking a file and selecting `Convert to materials`.
+
+This will create a folder and create a new material file for every texture in your WAD.
+Every texture that contains fullbright pixels, will be made emissive for you automatically.
+
+The .map files you will be using in your scene will automatically look for those materials.
+
+# Runtime 📦
+
+Games can now be exported to run outside of the editor, though asset packing is not yet available.
+It is a very simple and barebone way of sharing your game to your friends. 
+
+# Material thumbnails 🪨
+
+You can now preview the different materials available in your project through the filebrowser.
+A sphere with your material applied will be rendered and used as an icon for every `.material` file
+found in your project's folder.
+
+This is a small feature, but will be a stepping stone for rendering other types of assets(models, prefabs, scenes).
+
+<img src="https://media.discordapp.net/attachments/643147843405611038/1155679885092716626/image.png?ex=662efa44&is=661c8544&hm=afc4b2def06b7ea0fc67fdff2ce657c267963817ed35f667e5f0360fcd458ec4&=&format=webp&quality=lossless&width=924&height=486"/>
+> In the filebrower, you can now preview roughly what a material might look like in a 3D context. 
+
+# Selection outline 🖌️
+
+In the viewport, a pretty outline will be applied to the entity you've selected. That is all.
+
+I'm planning on exposing this system to the user so that outlines can be used in-game. It could be useful for
+games, like an x-ray effect or highlighting an object using an outline. I could also pipe the outline pass in the 
+emissive buffer to make a glowing effect. 🤷🏼
+
+# Various editor improvements
+
+I'm also constantly improving the editor interface and user experience as I'm working on other features. Here is a recent screenshot of the 
+editor. There is still a lot to improve, but it's coming along nicely.
+
+<img src="https://cdn.discordapp.com/attachments/828069636012507150/1231332791388737536/image.png?ex=66369306&is=66241e06&hm=4b78b8d2704e6b6c6328ab324f3b45850a3822f59b88f22e56ea162784d66d34&"/>

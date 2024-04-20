@@ -16,11 +16,18 @@ export async function generateMetadata(): Promise<Metadata> {
 export default function BlogPage () {
     const blogPosts = [
         {
+            "name": "April 2025",
+            "date": "Saturday, April 20, 2025",
+            "desc": "A long overdue update",
+            "url": '/blog/april',
+            "img_preview": 'https://cdn.antopilo.dev/images/nuakebannerc.png',
+        },
+        {
             "name": "Hello World",
             "date": "Friday, September 15, 2023",
             "desc": "Nuake is now live on the internet🌎",
             "url": '/blog/website',
-            "img_preview": 'https://cdn.antopilo.dev/images/nuakebannerc.png',
+            "img_preview": 'https://media.discordapp.net/attachments/828069636012507150/1231334917053481032/nuake-live.png?ex=66257181&is=66242001&hm=13912fe07098607d4f4f5b3a313c5cea31ce6dfab95a505ca2595b888c7c48cf&=&format=webp&quality=lossless',
         },
         {
             "name": "Bones & skeletons",

@@ -63,9 +63,9 @@ export default function Home() {
 
             <div className={styles.featureItem}>
               <div className={styles.featureItemL}>
-                <p className={styles.featureName}>Wren scripting</p>
+                <p className={styles.featureName}>C# & Wren scripting</p>
                 <p className={[styles.desc, poppins.className].join(" ")}>
-                  Increase your iteration times with Wren. An open-source object-oriented scripting language that is vastly superior than other scripting language like lua. C# Scripting is a planned feature as well.
+                  Nuake supports .Net 8 for entity scripting alongside Wren. An open-source object-oriented scripting language that is vastly superior than other scripting language like lua.
                 </p>
               </div>
               <div className={[styles.featureItemR, styles.featureImg].join(' ')}>
