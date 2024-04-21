@@ -19,7 +19,7 @@ export default function BlogPage () {
             "name": "April 2024",
             "date": "Saturday, April 20, 2024",
             "desc": "C#, Spatialized Audio, Triggers, Post-processing and a bunch more",
-            "url": '/blog/april',
+            "url": '/blog/april2024',
             "img_preview": 'https://cdn.antopilo.dev/blogPreviews/april-preview.png',
         },
         {
