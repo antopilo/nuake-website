@@ -1,9 +1,9 @@
 ---
-title: April 2025
-description: C#, Spatialized Audio, Triggers, Post-processing and a bunch more this month
-date: Saturday, April 20, 2025
+title: April 2024
+description: C#, Spatialized Audio, Triggers, Post-processing and a bunch more
+date: Saturday, April 20, 2024
 author: Antoine Pilote
-img: https://cdn.antopilo.dev/images/nuakeBanner.png
+img: https://cdn.antopilo.dev/blogPreviews/april-preview.png
 ---
 
 # Update
@@ -17,7 +17,6 @@ too much to write about! Anyway here are the cool new features and improvements 
 - Spatialized Audio
 - Triggers
 - Post-processing
-- Runtime and game exports
 
 **improvements**
 - Material thumbnails
@@ -158,11 +157,6 @@ Every texture that contains fullbright pixels, will be made emissive for you aut
 
 The `.map` files you will be using in your scene will automatically look for those materials.
 
-# Runtime
-
-Games can now be exported to run outside of the editor, though asset packing is not yet available.
-It is a very simple and barebone way of sharing your game to your friends. 
-
 # Material thumbnails
 
 You can now preview the different materials available in your project through the filebrowser.
@@ -182,13 +176,21 @@ I'm planning on exposing this system to the user so that outlines can be used in
 games, like an x-ray effect or highlighting an object using an outline. I could also pipe the outline pass in the 
 emissive buffer to make a glowing effect. 🤷🏼
 
+<img src="https://media.discordapp.net/attachments/828069636012507150/1231392541514006629/image.png?ex=6625a72c&is=662455ac&hm=8107157842fb1b0adf725d1a55c43b513545304087bad62a97e8df6e2d87a6de&=&format=webp&quality=lossless&width=1245&height=671"/>
+> The outline of a selected object
+
 # Various editor improvements
 
-I'm also constantly improving the editor interface and user experience as I'm working on other features. Here is a recent screenshot of the 
-editor. There is still a lot to improve, but it's coming along nicely.
+I'm also constantly improving the editor interface and user experience as I'm working on other features. 
 
-<img src="https://cdn.discordapp.com/attachments/828069636012507150/1231332791388737536/image.png?ex=66369306&is=66241e06&hm=4b78b8d2704e6b6c6328ab324f3b45850a3822f59b88f22e56ea162784d66d34&"/>
-> Here is a quick screenshot of the editor
+You can now open a `.map` from the file browser and it should open Trenchbroom for you if you have set up the path to the executable in your project properties.
+The same goes for `.sln` file if you happen to be using C# in this project. Visual studio should open right up. 
+Some new thumbnails for files also made their way in the file browser, more to come of course.
+
+There is still a lot to improve, but it's coming along nicely.
+
+<img src="https://media.discordapp.net/attachments/828069636012507150/1231397827427434558/image.png?ex=6636cf98&is=66245a98&hm=cd7a46e94cbdfaea4f2c4922000e24757fdcb16e1e1b54b5048ddbaf8a70bde2&=&format=webp&quality=lossless&width=1677&height=905"/>
+> Quick screenshot of the editor
 
 # Livestreaming 🔴
 
@@ -202,3 +204,4 @@ Here is the most recent one:
 <div style={{position: 'relative', paddingBottom: 56.25 + '%'}}>
 <iframe style={{position: 'absolute', left:0 + "px", top: 0 + 'px'}} width="100%" height="100%" src="https://www.youtube.com/embed/l2enaQhYcmk?si=m9mdmjMFhGeC5HNI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </div>
+> I'm not the best at explaining stuff...

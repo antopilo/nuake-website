@@ -16,11 +16,11 @@ export async function generateMetadata(): Promise<Metadata> {
 export default function BlogPage () {
     const blogPosts = [
         {
-            "name": "April 2025",
-            "date": "Saturday, April 20, 2025",
-            "desc": "A long overdue update",
+            "name": "April 2024",
+            "date": "Saturday, April 20, 2024",
+            "desc": "C#, Spatialized Audio, Triggers, Post-processing and a bunch more",
             "url": '/blog/april',
-            "img_preview": 'https://cdn.antopilo.dev/images/nuakebannerc.png',
+            "img_preview": 'https://cdn.antopilo.dev/blogPreviews/april-preview.png',
         },
         {
             "name": "Hello World",
