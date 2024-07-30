@@ -44,7 +44,8 @@ function fetchBlogPosts() {
             slug: fileName.replace('.mdx', ''),
           } as BlogPost;
       }
-    });
+    }).filter((post): post is BlogPost => post !== undefined);;
+
 
     posts.sort((a, b) => (a?.index ?? 0) - (b?.index ?? 0));
 
