@@ -19,6 +19,16 @@ export async function generateMetadata(): Promise<Metadata> {
 
 const BLOG_DIR = path.join(process.cwd(), 'content/blog-source'); // Adjust the path as needed
 
+type BlogPost = {
+    name: string;
+    date: string;
+    desc: string;
+    url: string;
+    img_preview: string;
+    index: number;
+    slug: string;
+  };
+
 function fetchBlogPosts() {
     const files = fs.readdirSync(BLOG_DIR);
 
@@ -32,11 +42,11 @@ function fetchBlogPosts() {
         return {
             ...data,
             slug: fileName.replace('.mdx', ''),
-          };
+          } as BlogPost;
       }
     });
 
-    posts.sort((a, b) => b.index - a.index);
+    posts.sort((a, b) => (a?.index ?? 0) - (b?.index ?? 0));
 
     return posts;
 }
