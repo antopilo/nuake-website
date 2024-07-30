@@ -47,7 +47,7 @@ function fetchBlogPosts() {
     }).filter((post): post is BlogPost => post !== undefined);;
 
 
-    posts.sort((a, b) => (a?.index ?? 0) - (b?.index ?? 0));
+    posts.sort((a, b) => (b?.index ?? 0) - (a?.index ?? 0));
 
     return posts;
 }
