@@ -4,6 +4,10 @@ import Link from "next/link"
 import { Metadata } from "next/dist/lib/metadata/types/metadata-interface";
 import { Footer } from "@/components/footer";
 
+import fs from 'fs';
+import path from 'path';
+import matter from 'gray-matter';
+
 export async function generateMetadata(): Promise<Metadata> {
 // read route params then fetch data
     // return an object
@@ -13,7 +17,34 @@ export async function generateMetadata(): Promise<Metadata> {
     };
 }
 
+const BLOG_DIR = path.join(process.cwd(), 'content/blog-source'); // Adjust the path as needed
+
+export function fetchBlogPosts() {
+    const files = fs.readdirSync(BLOG_DIR);
+
+    const posts = files.map((fileName) => {
+      const filePath = path.join(BLOG_DIR, fileName);
+      const fileContents = fs.readFileSync(filePath, 'utf8');
+      const { data, content } = matter(fileContents);
+    
+      if(process.env.NODE_ENV === 'development' || data['published'] == true)
+      {
+        return {
+            ...data,
+            slug: fileName.replace('.mdx', ''),
+          };
+      }
+    });
+
+    posts.sort((a, b) => b.index - a.index);
+
+    return posts;
+}
+
 export default function BlogPage () {
+
+    let blogs: any = fetchBlogPosts();
+    console.log(blogs)
     const blogPosts = [
         {
             "name": "April 2024",
@@ -47,19 +78,22 @@ export default function BlogPage () {
 
     let blogHtml = []
 
-    for(let i = 1; i < blogPosts.length; i++)
+    for(let i = 1; i < blogs.length; i++)
     {
         blogHtml.push(
-            <Link href={blogPosts[i].url}>
+            <Link href={/blog/ + blogs[i].slug}>
                 <div className={styles.blogItem}>
                     
-                    <div style={{backgroundImage: `url(${blogPosts[i].img_preview})`}} className={styles.blogItemImg}></div>
+                    <div style={{backgroundImage: `url(${blogs[i].img})`}} className={styles.blogItemImg}></div>
                     <div className={styles.blogItemRight}>
                         <div className={styles.dateLabel}>
-                            <p className={styles.dateLabelText}>{blogPosts[i].date}</p>
+                            <p className={styles.dateLabelText}>{blogs[i].date}</p>
+                            { !blogs[i].published && 
+                                <p>Private</p>
+                            }
                         </div>
-                        <p className={styles.cardTitle}>{blogPosts[i].name}</p>
-                        <p className={styles.cardDesc}>{blogPosts[i].desc}</p>
+                        <p className={styles.cardTitle}>{blogs[i].title}</p>
+                        <p className={styles.cardDesc}>{blogs[i].description}</p>
                     </div>
                 </div>
             </Link>
@@ -70,14 +104,14 @@ export default function BlogPage () {
             <Navbar />
             <div className={styles.blogPageWrapper}>
                 <div className={styles.blogPageContainer}>
-                    <Link href={blogPosts[0].url}>
-                        <div style={{backgroundImage: `url(${blogPosts[0].img_preview})`, backgroundSize: "contain"}} className={styles.mainBlogItem}>
+                    <Link href={/blog/ + blogs[0].slug}>
+                        <div style={{backgroundImage: `url(${blogs[0].img})`, backgroundSize: "contain"}} className={styles.mainBlogItem}>
                             <div className={styles.dateLabelMain}>
-                                <p className={styles.dateLabelText}>{blogPosts[0].date}</p>
+                                <p className={styles.dateLabelText}>{blogs[0].date}</p>
                             </div>
                             <div className={styles.cardBottom}>
-                                <p className={styles.cardTitle}>{blogPosts[0].name}</p>
-                                <p className={styles.cardDesc}>{blogPosts[0].desc}</p>
+                                <p className={styles.cardTitle}>{blogs[0].title}</p>
+                                <p className={styles.cardDesc}>{blogs[0].description}</p>
                             </div>
                         </div>
                     </Link>
