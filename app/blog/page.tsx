@@ -19,7 +19,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 const BLOG_DIR = path.join(process.cwd(), 'content/blog-source'); // Adjust the path as needed
 
-export function fetchBlogPosts() {
+function fetchBlogPosts() {
     const files = fs.readdirSync(BLOG_DIR);
 
     const posts = files.map((fileName) => {
