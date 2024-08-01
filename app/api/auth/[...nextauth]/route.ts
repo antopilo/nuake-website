@@ -27,13 +27,17 @@ const handler = NextAuth({
         },
         async redirect({ url, baseUrl }) {
             console.log(process.env.NEXTAUTH_URL)
-            return url
-            console.log(url + ' - ' + baseUrl)
-            // Allows relative callback URLs
-            if (url.startsWith("/")) return `${baseUrl}${url}`
-            // Allows callback URLs on the same origin
-            else if (new URL(url).origin === baseUrl) return url
-            return baseUrl
+            // Ensure baseUrl is correctly set to NEXTAUTH_URL
+            const nextAuthUrl = process.env.NEXTAUTH_URL || baseUrl;
+
+            // Allow relative callback URLs
+            if (url.startsWith("/")) return `${nextAuthUrl}${url}`;
+
+            // Allow callback URLs on the same origin
+            else if (new URL(url).origin === nextAuthUrl) return url;
+
+            // Otherwise, redirect to the base URL
+            return nextAuthUrl;
           },
     }
 });
