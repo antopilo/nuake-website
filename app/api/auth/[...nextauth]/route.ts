@@ -7,7 +7,14 @@ const handler = NextAuth({
     providers: [
         GitHubProvider({
             clientId: process.env.APP_GITHUB_ID || "",
-            clientSecret: process.env.APP_GITHUB_SECRET || ""
+            clientSecret: process.env.APP_GITHUB_SECRET || "",
+            authorization: {
+                params: {
+                    // Customize your authorization URL parameters here
+                    // e.g., redirect_uri, scope, etc.
+                    redirect_uri: `${process.env.NEXTAUTH_URL}/api/auth/callback/github`,
+                }
+            }
         }),
         ],
 
@@ -27,6 +34,7 @@ const handler = NextAuth({
         },
         async redirect({ url, baseUrl }) {
             console.log(process.env.NEXTAUTH_URL)
+
             // Ensure baseUrl is correctly set to NEXTAUTH_URL
             const nextAuthUrl = process.env.NEXTAUTH_URL || baseUrl;
 
@@ -37,6 +45,8 @@ const handler = NextAuth({
             else if (new URL(url).origin === nextAuthUrl) return url;
 
             // Otherwise, redirect to the base URL
+            console.log('RETURNING : ' + nextAuthUrl)
+
             return nextAuthUrl;
           },
     }
