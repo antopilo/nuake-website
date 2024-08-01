@@ -7,14 +7,7 @@ const handler = NextAuth({
     providers: [
         GitHubProvider({
             clientId: process.env.APP_GITHUB_ID || "",
-            clientSecret: process.env.APP_GITHUB_SECRET || "",
-            authorization: {
-                params: {
-                    // Customize your authorization URL parameters here
-                    // e.g., redirect_uri, scope, etc.
-                    redirect_uri: `${process.env.NEXTAUTH_URL}/api/auth/callback/github`,
-                }
-            }
+            clientSecret: process.env.APP_GITHUB_SECRET || ""
         }),
         ],
 
