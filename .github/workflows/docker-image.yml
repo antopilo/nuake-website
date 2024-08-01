@@ -31,3 +31,6 @@ jobs:
           context: .
           push: true
           tags: antopilo/nuake-website-web:latest
+          secrets: |
+            "APP_GITHUB_SECRET=${{ secrets.APP_GITHUB_SECRET }}"
+            "APP_GITHUB_ID=${{ secrets.APP_GITHUB_ID }}"        
