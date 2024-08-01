@@ -31,6 +31,7 @@ const handler = NextAuth({
             return session;
         },
         async redirect({ url, baseUrl }) {
+            return url
             console.log(url + ' - ' + baseUrl)
             // Allows relative callback URLs
             if (url.startsWith("/")) return `${baseUrl}${url}`
