@@ -8,9 +8,16 @@ const handler = NextAuth({
         GitHubProvider({
             clientId: process.env.APP_GITHUB_ID || "",
             clientSecret: process.env.APP_GITHUB_SECRET || "",
+            authorization: {
+                params: {
+                    redirect_uri: "https://nuake.antopilo.dev"
+                }
+            }
         }),
         ],
+
     callbacks: {
+
         async jwt({ token, account }) {
             // Ensure account exists and accessToken is a string
             if (account && typeof account.access_token === 'string') {
