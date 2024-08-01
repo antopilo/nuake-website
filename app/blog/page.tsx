@@ -65,7 +65,7 @@ export default function BlogPage () {
             <Link href={/blog/ + blogs[i].slug}>
                 <div className={styles.blogItem}>
                     
-                    <div style={{backgroundImage: `url(${blogs[i].Image})`}} className={styles.blogItemImg}></div>
+                    <div style={{backgroundImage: `url(${blogs[i].img})`}} className={styles.blogItemImg}></div>
                     <div className={styles.blogItemRight}>
                         <div className={styles.dateLabel}>
                             <p className={styles.dateLabelText}>{blogs[i].date}</p>
@@ -86,7 +86,7 @@ export default function BlogPage () {
             <div className={styles.blogPageWrapper}>
                 <div className={styles.blogPageContainer}>
                     <Link href={/blog/ + blogs[0].slug}>
-                        <div style={{backgroundImage: `url(${blogs[0].Image})`, backgroundSize: "contain"}} className={styles.mainBlogItem}>
+                        <div style={{backgroundImage: `url(${blogs[0].img})`, backgroundSize: "contain"}} className={styles.mainBlogItem}>
                             <div className={styles.dateLabelMain}>
                                 <p className={styles.dateLabelText}>{blogs[0].date}</p>
                             </div>
