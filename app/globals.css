@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import '../node_modules/@mdxeditor/editor/dist/style.css';
+
 html{scroll-behavior:smooth}
 
 :root {
@@ -45,4 +47,15 @@ ul {
 
 img {
   border-radius: 8px;
+}
+
+.mdxeditor {
+  height: 100%;
+  margin-left: 100px;
+
+}
+
+.bodyContainer {
+  margin-left: 5%;
+  margin-right: 5%;
 }
