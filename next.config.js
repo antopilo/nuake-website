@@ -10,6 +10,9 @@ const nextConfig = {
         // this will just update topLevelAwait property of config.experiments
         // config.experiments.topLevelAwait = true
         return config
+    },
+    env: {
+        NEXTAUTH_URL: process.env.NEXTAUTH_URL
     }
 }
 
