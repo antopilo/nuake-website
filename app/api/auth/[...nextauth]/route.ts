@@ -23,6 +23,10 @@ const handler = NextAuth({
             session.accessToken = typeof token.accessToken === 'string' ? token.accessToken : undefined;
             return session;
         },
+        async redirect({ url, baseUrl }) {
+            // Ensure the URL matches the reverse proxy's external URL
+            return baseUrl;
+          },
     }
 });
 
