@@ -34,4 +34,4 @@ jobs:
           secrets: |
             "APP_GITHUB_SECRET=${{ secrets.APP_GITHUB_SECRET }}"
             "APP_GITHUB_ID=${{ secrets.APP_GITHUB_ID }}"        
-            "AUTH_TRUST_HOST"=true
+            "AUTH_TRUST_HOST"="true"
