@@ -56,37 +56,7 @@ export default function BlogPage () {
 
     let blogs: any = fetchBlogPosts();
     console.log(blogs)
-    const blogPosts = [
-        {
-            "name": "April 2024",
-            "date": "Saturday, April 20, 2024",
-            "desc": "C#, Spatialized Audio, Triggers, Post-processing and a bunch more",
-            "url": '/blog/april2024',
-            "img_preview": 'https://cdn.antopilo.dev/blogPreviews/april-preview.png',
-        },
-        {
-            "name": "Hello World",
-            "date": "Friday, September 15, 2023",
-            "desc": "Nuake is now live on the internet🌎",
-            "url": '/blog/website',
-            "img_preview": 'https://media.discordapp.net/attachments/828069636012507150/1231334917053481032/nuake-live.png?ex=66257181&is=66242001&hm=13912fe07098607d4f4f5b3a313c5cea31ce6dfab95a505ca2595b888c7c48cf&=&format=webp&quality=lossless',
-        },
-        {
-            "name": "Bones & skeletons",
-            "date": "Friday, September 8, 2023",
-            "desc": "Nuake now supports basic skeletal animations 🦴",
-            "url": '/blog/bones-and-skeletons',
-            "img_preview": 'http://cdn.antopilo.dev/blogPreviews/nuakeSkeleton.png',
-        },
-        {
-            "name": "Sprites & billboards",
-            "date": "Saturday, August 5, 2023",
-            "desc": "New 3D sprite system and billboard behaviour🖼️",
-            "url": '/blog/sprites-and-billboards',
-            "img_preview": 'http://cdn.antopilo.dev/blogPreviews/nuakeBillboard.png',
-        }
-    ]
-
+    
     let blogHtml = []
 
     for(let i = 1; i < blogs.length; i++)
@@ -95,7 +65,7 @@ export default function BlogPage () {
             <Link href={/blog/ + blogs[i].slug}>
                 <div className={styles.blogItem}>
                     
-                    <div style={{backgroundImage: `url(${blogs[i].img})`}} className={styles.blogItemImg}></div>
+                    <div style={{backgroundImage: `url(${blogs[i].Image})`}} className={styles.blogItemImg}></div>
                     <div className={styles.blogItemRight}>
                         <div className={styles.dateLabel}>
                             <p className={styles.dateLabelText}>{blogs[i].date}</p>
@@ -116,7 +86,7 @@ export default function BlogPage () {
             <div className={styles.blogPageWrapper}>
                 <div className={styles.blogPageContainer}>
                     <Link href={/blog/ + blogs[0].slug}>
-                        <div style={{backgroundImage: `url(${blogs[0].img})`, backgroundSize: "contain"}} className={styles.mainBlogItem}>
+                        <div style={{backgroundImage: `url(${blogs[0].Image})`, backgroundSize: "contain"}} className={styles.mainBlogItem}>
                             <div className={styles.dateLabelMain}>
                                 <p className={styles.dateLabelText}>{blogs[0].date}</p>
                             </div>

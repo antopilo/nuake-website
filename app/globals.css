@@ -12,6 +12,27 @@ html{scroll-behavior:smooth}
   --background-end-rgb: 0, 0, 0;
 }
 
+.protected {
+  width:100%;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.editorHeight {
+  height: 80vh;
+}
+
+.center {
+  width:100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: #151515
@@ -51,11 +72,28 @@ img {
 
 .mdxeditor {
   height: 100%;
-  margin-left: 100px;
 
 }
 
 .bodyContainer {
   margin-left: 5%;
   margin-right: 5%;
+}
+
+.file-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #FFF;
+  margin-bottom: 8px;
+}
+
+.file-link { 
+  font-size: 16px;
+  font-weight: 400;
+  color: #FFF;
+  margin-bottom: 8px;
+}
+
+.auth-container {
+  margin-left: 20%;
 }

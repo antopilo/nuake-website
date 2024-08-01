@@ -13,7 +13,7 @@ export default function Home() {
       <Navbar/>
       <div className={styles.jumbotron}>
       
-        <img alt="Nuake Icon" className={styles.icon} src="/icon.svg"/>
+        <Image alt="Nuake Icon" className={styles.icon} src="/icon.svg"/>
         
 
         <p className={styles.megaText}>
@@ -51,7 +51,7 @@ export default function Home() {
 
             <div className={styles.featureItem}>
               <div className={[styles.featureItemL, styles.featureImg].join(' ')}>
-              <img alt="Rendering Image" src="https://cdn.antopilo.dev/nuakeGraphics.png"></img>
+              <Image alt="Rendering Image" src="https://cdn.antopilo.dev/nuakeGraphics.png"></Image>
               </div>
               <div className={styles.featureItemR}>
                 <p className={styles.featureName}>Modern Rendering</p>

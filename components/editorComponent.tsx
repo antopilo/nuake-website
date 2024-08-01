@@ -30,6 +30,7 @@ import { FC } from "react";
 interface EditorProps {
   markdown: string;
   editorRef?: React.MutableRefObject<MDXEditorMethods | null>;
+  pushCallback: any;
 }
 
 async function imageUploadHandler(image: File) {
@@ -50,12 +51,12 @@ async function imageUploadHandler(image: File) {
  * Extend this Component further with the necessary plugins or props you need.
  * proxying the ref is necessary. Next.js dynamically imported components don't support refs.
  */
-const Editor: FC<EditorProps> = ({ markdown, editorRef }) => {
+const Editor: FC<EditorProps> = ({ markdown, editorRef, pushCallback }) => {
 
   let oldMarkdown = markdown;
 
   return (
-    <div className="mdxEditorWrapper">
+    <div>
         <MDXEditor
         contentEditableClassName="prose"
         className="dark-theme dark-editor"
@@ -104,15 +105,17 @@ const Editor: FC<EditorProps> = ({ markdown, editorRef }) => {
                 
                 <DialogButton  
                   onSubmit={(value: string) => {
-                    console.log("Submitted value:", value);
+                    if(value)
+                    {
+                      console.log("Submitted value:", value);
+                      pushCallback(value);
+                    }
                   }}
-                  dialogInputPlaceholder=""
+                  dialogInputPlaceholder="Your commit message here"
                   buttonContent="Commit & Push"
                   submitButtonTitle="Push"
                   tooltipTitle="push"
-                >
-                  Push
-                </DialogButton>
+                />
               </div>
               
             )
