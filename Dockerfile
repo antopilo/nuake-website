@@ -62,5 +62,5 @@ ENV PORT 3000
 # set hostname to localhost
 ENV HOSTNAME "0.0.0.0"
 ENV NEXTAUTH_URL "https://nuake.antopilo.dev"
-
+ENV NEXT_PUBLIC_NEXTAUTH_URL "https://nuake.antopilo.dev"
 CMD ["node", "server.js"]

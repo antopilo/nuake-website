@@ -36,3 +36,4 @@ jobs:
             APP_GITHUB_ID=${{ secrets.APP_GITHUB_ID }}
             AUTH_TRUST_HOST=true
             NEXTAUTH_URL=https://nuake.antopilo.dev
+            NEXT_PUBLIC_NEXT_AUTH_URL=https://nuake.antopilo.dev

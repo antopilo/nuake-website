@@ -26,10 +26,10 @@ const handler = NextAuth({
             return session;
         },
         async redirect({ url, baseUrl }) {
-            console.log(process.env.NEXTAUTH_URL)
+            console.log(process.env.NEXT_PUBLIC_NEXTAUTH_URL)
 
             // Ensure baseUrl is correctly set to NEXTAUTH_URL
-            const nextAuthUrl = process.env.NEXTAUTH_URL || baseUrl;
+            const nextAuthUrl = process.env.NEXT_PUBLIC_NEXTAUTH_URL || baseUrl;
 
             // Allow relative callback URLs
             if (url.startsWith("/")) return `${nextAuthUrl}${url}`;
