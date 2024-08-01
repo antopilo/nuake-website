@@ -7,12 +7,7 @@ const handler = NextAuth({
     providers: [
         GitHubProvider({
             clientId: process.env.APP_GITHUB_ID || "",
-            clientSecret: process.env.APP_GITHUB_SECRET || "",
-            authorization: {
-                params: {
-                    redirect_uri: "https://nuake.antopilo.dev"
-                }
-            }
+            clientSecret: process.env.APP_GITHUB_SECRET || ""
         }),
         ],
 
@@ -31,6 +26,7 @@ const handler = NextAuth({
             return session;
         },
         async redirect({ url, baseUrl }) {
+            console.log(process.env.NEXTAUTH_URL)
             return url
             console.log(url + ' - ' + baseUrl)
             // Allows relative callback URLs
