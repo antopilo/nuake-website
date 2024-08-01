@@ -11,4 +11,4 @@ services:
       - "3000:3000"
     environment:
       NODE_ENV: development
-      NEXTAUTH_URL: https://nuake.antopilo.dev
+      NEXTAUTH_URL: "https://nuake.antopilo.dev"
