@@ -14,11 +14,12 @@ const handler = NextAuth({
     callbacks: {
         async signIn({ user }) {
             // Check if the user is the allowed user
-            const allowedUser = 'antopilo'; // Replace with the allowed username
-            console.log(user)
-            if (user?.name === allowedUser) {
+            const allowedUser = '34318785'; // Replace with the allowed username
+            
+            if (user?.id === allowedUser) {
               return true; // Allow access
             } else {
+                console.log("Unauthorized user tried signing in: " + user);
               return false; // Deny access
             }
         },
