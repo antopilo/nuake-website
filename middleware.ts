@@ -7,7 +7,7 @@ export function middleware(req: NextRequest) {
   console.log( req.nextUrl.hostname)
   console.log("MIDDLEWARE");
   // Return the response
-  return NextResponse.next();
+  return req;
 }
 
 // Optionally define your matcher to apply this middleware to specific paths
