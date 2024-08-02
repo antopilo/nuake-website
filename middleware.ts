@@ -14,5 +14,5 @@ export function middleware(req: NextRequest) {
 
 // Optionally define your matcher to apply this middleware to specific paths
 export const config = {
-  matcher: ['/api/auth/callback/:path*', '/protected/:path*'], // Update paths as needed
+  matcher: ['/api/auth/callback/ssss', '/protected/:path*'], // Update paths as needed
 };

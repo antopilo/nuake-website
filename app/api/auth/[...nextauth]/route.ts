@@ -12,7 +12,6 @@ const handler = NextAuth({
         ],
 
     callbacks: {
-
         async jwt({ token, account }) {
             // Ensure account exists and accessToken is a string
             if (account && typeof account.access_token === 'string') {
@@ -26,19 +25,25 @@ const handler = NextAuth({
             return session;
         },
         async redirect({ url, baseUrl }) {
-            console.log(process.env.NEXT_PUBLIC_NEXTAUTH_URL)
-
             // Ensure baseUrl is correctly set to NEXTAUTH_URL
-            const nextAuthUrl = process.env.NEXT_PUBLIC_NEXTAUTH_URL || baseUrl;
-
+            const nextAuthUrl = process.env.NEXTAUTH_URL || baseUrl;
+            console.log("The NEXTAUTH_URL detected is: " + process.env.NEXTAUTH_URL + " \n" +
+                "url:" + url + " base: " + baseUrl + " \n" + 
+                "nextAuthUrl: " + nextAuthUrl)
             // Allow relative callback URLs
-            if (url.startsWith("/")) return `${nextAuthUrl}${url}`;
-
+            if (url.startsWith("/")) {
+                console.log("Redirect returns: " + `${nextAuthUrl}${url}`);
+                return `${nextAuthUrl}${url}`;
+            } 
+            
             // Allow callback URLs on the same origin
-            else if (new URL(url).origin === nextAuthUrl) return url;
+            else if (new URL(url).origin === nextAuthUrl) {
+                console.log("Redirect same origin returns: " + url);    
+                return url;
+            }
 
             // Otherwise, redirect to the base URL
-            console.log('RETURNING : ' + nextAuthUrl)
+            console.log('Redirect fallback: ' + nextAuthUrl)
 
             return nextAuthUrl;
           },
