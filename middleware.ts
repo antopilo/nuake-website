@@ -2,12 +2,14 @@ import { NextRequest, NextResponse } from 'next/server';
 
 export function middleware(req: NextRequest) {
   // Set hostname from environment variable
-  req.nextUrl.hostname = new URL(process.env.NEXTAUTH_URL!).hostname;
+  const newUrl = new URL(req.url);
+  newUrl.hostname = new URL(process.env.NEXTAUTH_URL!).hostname;
 
-  console.log( req.nextUrl.hostname)
-  console.log("MIDDLEWARE");
+  console.log( newUrl.hostname)
+  console.log("MIDDLEWARE replaced hostname to: " + newUrl.hostname);
+
   // Return the response
-  return req;
+  return NextResponse.rewrite(newUrl);
 }
 
 // Optionally define your matcher to apply this middleware to specific paths
