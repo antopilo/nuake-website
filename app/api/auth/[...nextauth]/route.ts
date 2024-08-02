@@ -12,6 +12,16 @@ const handler = NextAuth({
         ],
 
     callbacks: {
+        async signIn({ user }) {
+            // Check if the user is the allowed user
+            const allowedUser = 'antopilo'; // Replace with the allowed username
+            console.log(user)
+            if (user?.name === allowedUser) {
+              return true; // Allow access
+            } else {
+              return false; // Deny access
+            }
+        },
         async jwt({ token, account }) {
             // Ensure account exists and accessToken is a string
             if (account && typeof account.access_token === 'string') {
