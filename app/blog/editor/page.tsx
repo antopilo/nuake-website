@@ -33,7 +33,7 @@ async function fetchBlogPosts(accessToken: string | undefined) {
   
   if(accessToken)
   {
-    const apiUrl = `https://api.github.com/repos/${GITHUB_REPO_OWNER}/${GITHUB_REPO_NAME}/contents/`;
+    const apiUrl = `https://api.github.com/repos/antopilo/NuakeBlog/contents/`;
     const headers = {
         Authorization: `token ${accessToken}`,
         Accept: 'application/vnd.github.v3+json',
@@ -72,7 +72,7 @@ async function updateFileOnGitHub(message:string, fileName: string, newContent: 
 
     const updatedContentBase64 = Buffer.from(newContent, 'utf8').toString('base64');
 
-    const commitApiUrl = `${GITHUB_API_BASE}/repos/${GITHUB_REPO_OWNER}/${GITHUB_REPO_NAME}/contents/${fileName}`;
+    const commitApiUrl = `${GITHUB_API_BASE}/repos/antopilo/NuakeBlog}/contents/${fileName}`;
     const commitResponse = await axios.put(commitApiUrl, {
       message: `Update ${fileName} - ` + message,
       content: updatedContentBase64,
