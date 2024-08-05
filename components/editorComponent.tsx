@@ -92,17 +92,7 @@ const Editor: FC<EditorProps> = ({ markdown, editorRef, pushCallback, onChangeCa
                   <InsertTable />
                   <InsertImage/>
                   <ListsToggle/>
-                  <ConditionalContents
-                  options={[
-                      { when: (editor) => editor?.editorType === 'codeblock', contents: () => <ChangeCodeMirrorLanguage /> },
-                      { fallback: () => ( <> 
-                      <InsertCodeBlock />
-                    </>) }
-                    ]}
-                  />
                 </DiffSourceToggleWrapper>,
-                {'         '}
-                
                 <DialogButton  
                   onSubmit={(value: string) => {
                     if(value)

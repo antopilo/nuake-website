@@ -76,8 +76,7 @@ img {
 }
 
 .bodyContainer {
-  margin-left: 5%;
-  margin-right: 5%;
+
 }
 
 .file-title {
@@ -94,9 +93,25 @@ img {
   margin-bottom: 8px;
 }
 
-.auth-container {
-  margin-left: 20%;
-  margin-right: 20%;
+.bodyContainer {
+  max-width: 800px;
+  margin-bottom: 64px;
+}
+
+.auth-container { 
+  display:flex;
+  justify-content: center;
+  width: 100%;
+}
+
+
+@media (max-width: 640px)
+{
+  .bodyContainer {
+    width: 100%;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
 }
 
 .nuake-blog-editor-content {
