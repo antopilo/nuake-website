@@ -31,6 +31,7 @@ interface EditorProps {
   markdown: string;
   editorRef?: React.MutableRefObject<MDXEditorMethods | null>;
   pushCallback: any;
+  onChangeCallback: (markdown: string) => void;
 }
 
 async function imageUploadHandler(image: File) {

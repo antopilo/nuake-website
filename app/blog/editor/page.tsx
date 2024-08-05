@@ -103,13 +103,37 @@ type File = {
   download_url: string;
 };
 
+type FileHeader = {
+  title: string;
+  description: string;
+  visibility: string;
+  date: string;
+  author: string;
+};
+
+const defaultFileHeader: FileHeader = {
+  title: '',
+  description: '',
+  visibility: '',
+  date: '',
+  author: '',
+};
+
+
+type ContenteState = {
+    fileName: string,
+    fileData: string,
+    fileSha: string,
+    fileHeader: FileHeader
+}
+
 const EditorPage = () => {
   const [data, setData] = useState<File[]>([]);
-  const [content, setContent] = useState({
+  const [content, setContent] = useState<ContenteState>({
     fileName: '',
     fileData: '',
     fileSha: '',
-    fileHeader: {}
+    fileHeader: defaultFileHeader
   }); // State to store file content
 
   const { data: session, status } = useSession();
@@ -149,12 +173,18 @@ const EditorPage = () => {
 
   }
 
-  async function onChangeCB(e: any) {
+  async function onChangeCB(e: string) {
     const { data, content } = matter(e);
         
     setContent(prevContent => ({
                 ...prevContent,
-                fileHeader: data
+                fileHeader: {
+                  title: data.title,
+                  description: data.description,
+                  date: data.date,
+                  author: data.author,
+                  visibility: data.visibility
+                }
             }));
   }
 
@@ -179,7 +209,13 @@ const EditorPage = () => {
                     fileName: fileName,
                     fileData: decodedContent,
                     fileSha: response.data.sha,
-                    fileHeader: data
+                    fileHeader: {
+                      title: data.title,
+                      description: data.description,
+                      date: data.date,
+                      author: data.author,
+                      visibility: data.visibility
+                    }
                 }));
 
 
