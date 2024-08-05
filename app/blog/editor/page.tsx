@@ -11,6 +11,7 @@ import axios from 'axios';
 import React from 'react';
 import { MDXEditorMethods } from '@mdxeditor/editor';
 import { signIn, signOut, useSession } from 'next-auth/react';
+import { BlogHeader } from '@/components/blog-header';
 
 const MdxEditor = dynamic(() => import('@/components/editorComponent'), { ssr: false })
 
@@ -70,20 +71,28 @@ async function updateFileOnGitHub(message:string, fileName: string, newContent: 
       Accept: 'application/vnd.github.v3+json',
     };
 
+    const fetchapiUrl = `https://api.github.com/repos/antopilo/NuakeBlog/contents/${fileName}`;
+    const response = await axios.get(fetchapiUrl, { headers });
+    const decodedContent = Buffer.from(response.data.content, 'base64').toString('utf8');
+
+    const receivedSha = response.data.sha
+
     const updatedContentBase64 = Buffer.from(newContent, 'utf8').toString('base64');
 
     const commitApiUrl = `${GITHUB_API_BASE}/repos/antopilo/NuakeBlog/contents/${fileName}`;
     const commitResponse = await axios.put(commitApiUrl, {
       message: `Update ${fileName} - ` + message,
       content: updatedContentBase64,
-      sha: sha, // The SHA of the file to update
+      sha: receivedSha, // The SHA of the file to update
     }, { headers });
 
+    alert("Changes pushed successfully ✅")
     console.log('File updated successfully:', commitResponse.data);
 
     return commitResponse.data;
 
   } catch (error) {
+    alert("Failed to push changes ❌")
     console.error('Error updating file on GitHub:', error);
     throw error;
   }
@@ -99,7 +108,8 @@ const EditorPage = () => {
   const [content, setContent] = useState({
     fileName: '',
     fileData: '',
-    fileSha: ''
+    fileSha: '',
+    fileHeader: {}
   }); // State to store file content
 
   const { data: session, status } = useSession();
@@ -122,7 +132,30 @@ const EditorPage = () => {
   const ref = React.useRef<MDXEditorMethods>(null)
 
   async function push(message: string) {
-    updateFileOnGitHub(message, content.fileName, ref.current?.getMarkdown() || "", content.fileSha, session?.accessToken || "")
+    try {
+      updateFileOnGitHub(message, content.fileName, ref.current?.getMarkdown() || "", content.fileSha, session?.accessToken || "")
+      // Success
+      setContent(prevContent => ({
+        ...prevContent,
+        fileName: content.fileName,
+        fileData: ref.current?.getMarkdown() || content.fileData,
+        fileSha: content.fileSha
+    }));
+      console.log("power")
+    }catch(err) {
+      alert("Failed to push changes")
+      console.log("err")
+    }
+
+  }
+
+  async function onChangeCB(e: any) {
+    const { data, content } = matter(e);
+        
+    setContent(prevContent => ({
+                ...prevContent,
+                fileHeader: data
+            }));
   }
 
   const fetchFileContent = async (fileName: string) => {
@@ -139,12 +172,16 @@ const EditorPage = () => {
         const response = await axios.get(apiUrl, { headers });
         const decodedContent = Buffer.from(response.data.content, 'base64').toString('utf8');
 
+        const { data, content } = matter(decodedContent);
+        
         setContent(prevContent => ({
                     ...prevContent,
                     fileName: fileName,
                     fileData: decodedContent,
-                    fileSha: response.data.sha
+                    fileSha: response.data.sha,
+                    fileHeader: data
                 }));
+
 
         ref.current?.setMarkdown(decodedContent);
         console.log(content);
@@ -193,7 +230,16 @@ const EditorPage = () => {
               )}
             </ul>
           </div>
-            {content ? <MdxEditor pushCallback={push} editorRef={ref} markdown={content.fileData} /> : <p></p>}
+            {content.fileData ? 
+              <>
+                <BlogHeader
+                    title={content.fileHeader.title || "No title"}
+                    description={content.fileHeader.description || "No description"}
+                    date={content.fileHeader.date || "No date"}
+                    author={content.fileHeader.author || "No author"} 
+                />
+                <MdxEditor pushCallback={push} onChangeCallback={onChangeCB} editorRef={ref} markdown={content.fileData} />
+              </> : <p></p>}
         </div>
               
             </div>
