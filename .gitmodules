@@ -1,0 +1,3 @@
+[submodule "content/blog-source"]
+	path = content/blog-source
+	url = https://github.com/antopilo/NuakeBlog.git
