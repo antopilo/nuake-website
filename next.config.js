@@ -13,7 +13,17 @@ const nextConfig = {
     },
     env: {
         NEXTAUTH_URL: process.env.NEXTAUTH_URL
-    }
+    },
+    images: {
+        remotePatterns: [
+          {
+            protocol: 'https',
+            hostname: 'cdn.antopilo.dev',
+            port: '',
+            pathname: '**',
+          },
+        ],
+      },
 }
 
 module.exports = nextConfig

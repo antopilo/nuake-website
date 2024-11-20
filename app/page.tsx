@@ -3,6 +3,7 @@ import { Navbar } from '@/components/navbar'
 import styles from "./page.module.css"
 import { Fira_Mono, Poppins } from 'next/font/google'
 import previewImage from "@/public/preview.png"
+import renderImage from "@/public/editor-render.png"
 import { Footer } from '@/components/footer'
 import Link from 'next/link'
 
@@ -12,9 +13,7 @@ export default function Home() {
     <main>
       <Navbar/>
       <div className={styles.jumbotron}>
-      
-        <Image alt="Nuake Icon" className={styles.icon} src="/icon.svg"/>
-        
+        <img alt="Nuake Icon" className={styles.icon} src="/icon.svg" />
 
         <p className={styles.megaText}>
           <span className={styles.quote}>“</span>
@@ -32,7 +31,10 @@ export default function Home() {
           </div>
         </Link>
 
-        <Image priority={true} src={previewImage} style={{width: "100%"}} className={styles.previewImg} alt="Editor Preview" placeholder='blur'/>
+        <div className={styles.previewImageContainer}>
+          <Image priority={true} src={previewImage} style={{width: "100%"}} className={styles.previewImg} alt="Editor Preview" placeholder='blur'/>
+        </div>
+        
       </div>
       <div className={styles.featureSection}>
           <div className={styles.featureList}>
@@ -45,13 +47,13 @@ export default function Home() {
                 </p>
               </div>
               <div className={[styles.featureItemR, styles.featureImg].join(' ')}>
-                <video style={{width: "100%"}}  src="https://cdn.antopilo.dev/nuakeTB.mp4" loop muted autoPlay placeholder='blur'/>
+                <video style={{width: "100%"}}  src="https://cdn.antopilo.dev/tb-livereload.mp4" loop muted autoPlay placeholder='blur'/>
               </div>
             </div>
 
-            <div className={styles.featureItem}>
-              <div className={[styles.featureItemL, styles.featureImg].join(' ')}>
-              <Image alt="Rendering Image" src="https://cdn.antopilo.dev/nuakeGraphics.png"></Image>
+            <div style={{height: "100%"}} className={styles.featureItem}>
+              <div style={{position: "relative", width: "100%", height: "100%"}} className={[styles.featureItemL, styles.featureImg].join(' ')}>
+                <Image  sizes="(width: 900px)"alt="Rendering Image" src={renderImage} ></Image>
               </div>
               <div className={styles.featureItemR}>
                 <p className={styles.featureName}>Modern Rendering</p>
@@ -75,7 +77,7 @@ export default function Home() {
 
             <div className={styles.featureItem}>
               <div className={[styles.featureItemL, styles.featureImg].join(' ')}>
-              <video style={{width: "100%"}}  src="https://cdn.antopilo.dev/nuakePhysics.mp4" loop muted autoPlay placeholder='blur'/>
+              <video style={{width: "100%"}}  src="https://cdn.antopilo.dev/jolt.mp4" loop muted autoPlay placeholder='blur'/>
               </div>
               <div className={styles.featureItemR}>
                 <p className={styles.featureName}>Jolt physics</p>

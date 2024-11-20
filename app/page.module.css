@@ -96,10 +96,25 @@
     max-width: 1000px;
 }
 
+.previewImageContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    top: 0px;
+    transition: 0.5s;
+    position:relative;
+}
+
+.previewImageContainer:hover {
+    top: -12vh;
+    transition: 0.5s;
+    filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 0.486));
+}
+
 .featureSection {
     width: 100%;
     background-color: rgb(17, 17 ,17);
-    margin-top: -5%;
+    margin-top: -5vh;
     z-index: 1;
     display:flex;
     justify-content: center;
