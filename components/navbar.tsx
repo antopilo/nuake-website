@@ -15,7 +15,7 @@ export function Navbar() {
             <Link aria-label="Home link" href="/" className={styles.navLink}>home</Link>
             <Link aria-label="News link" href="/blog" className={styles.navLink}>news</Link>
             <Link aria-label="FAQ link" href="/#faq" className={styles.navLink}>faq</Link>
-            <Link aria-label="Docs" href="https://nuake.readthedocs.io/en/latest/index.html" className={styles.navLink}>docs</Link>
+            <Link aria-label="Docs" href="https://docs.antopilo.dev/s/2b239c4c-0499-4059-8de9-b240f71887c0" className={styles.navLink}>docs</Link>
             <Link aria-label="Discord link" href="https://discord.gg/VdR3E8HNec" className={styles.navLink}><img alt="Discord Icon" className={styles.navIcon} src="/discord.svg"/></Link>
             <Link aria-label="Github link" href="https://github.com/antopilo/nuake" className={styles.navLink}><img alt="Github Icon" className={styles.navIcon} src="/github-mark.svg"/></Link>
         </div>

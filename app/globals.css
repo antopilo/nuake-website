@@ -66,6 +66,10 @@ ul {
   line-height: normal;
 }
 
+ol {
+  color: #bbbbbb;
+}
+
 img {
   border-radius: 8px;
 }

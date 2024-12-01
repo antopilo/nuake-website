@@ -74,27 +74,29 @@ const components = {
   p: ({ className, ...props } : React.HTMLAttributes<HTMLParagraphElement>) => (
     <p
       className={[cn("leading-7 [not(:first-child)]:mt-6", className), poppins.className].join(" ")}
-      style={{padding: '8px 32px 16px 32px', fontSize: 15}}
+      style={{padding: '8px 8px 8px 8px', fontSize: 15}}
       {...props}
     />
   ),
   ul: ({ className, ...props } : React.HTMLAttributes<HTMLUListElement>) => (
     <ul className={[cn("ml-6 list-disc", className), poppins.className].join(" ")} {...props}
-    style={{padding: '8px 32px 16px 32px', fontSize: 15}} />
+    style={{padding: '0px 32px 0px', fontSize: 15}} />
   ),
   ol: ({ className, ...props } : React.HTMLAttributes<HTMLOListElement>) => (
-    <ol className={cn("my-6 ml-6 list-decimal", className)} {...props} />
+    <ol className={[cn("ml-6 list-decimal", className), poppins.className].join(" ")} {...props} 
+    style={{padding: '0px 0px 0px', fontSize: 15}}/>
   ),
   li: ({ className, ...props }: React.HTMLAttributes<HTMLLIElement>) => (
-    <li className={cn("mt-2", className)} {...props} />
+    <li className={[cn("mt-2", className), poppins.className].join(" ")} {...props} 
+    style={{padding: '0px 32px 0px', fontSize: 15}}/>
   ),
   blockquote: ({ className, ...props } : React.HTMLAttributes<HTMLQuoteElement>) => (
     <blockquote
       className={cn(
-        "mt-6 border-l-4 pl-6 italic [&>*]:text-muted-foreground",
+        "border-l-4 pl-6 italic [&>*]:text-muted-foreground",
         className
       )}
-      style={{padding: 0 + 'px', borderColor: "#6100FF"}}
+      style={{borderColor: "#6100FF"}}
       {...props}
     />
   ),
