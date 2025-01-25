@@ -5,6 +5,7 @@ import blogSource__august2024Mdx from './blog-source__august2024.mdx.json' asser
 import blogSource__bonesAndSkeletonsMdx from './blog-source__bones-and-skeletons.mdx.json' assert { type: 'json' }
 import blogSource__novemberMdx from './blog-source__november.mdx.json' assert { type: 'json' }
 import blogSource__spritesAndBillboardsMdx from './blog-source__sprites-and-billboards.mdx.json' assert { type: 'json' }
+import blogSource__vulkan1Mdx from './blog-source__vulkan1.mdx.json' assert { type: 'json' }
 import blogSource__websiteMdx from './blog-source__website.mdx.json' assert { type: 'json' }
 
-export const allDocs = [blogSource__april2024Mdx, blogSource__august2024Mdx, blogSource__bonesAndSkeletonsMdx, blogSource__novemberMdx, blogSource__spritesAndBillboardsMdx, blogSource__websiteMdx]
+export const allDocs = [blogSource__april2024Mdx, blogSource__august2024Mdx, blogSource__bonesAndSkeletonsMdx, blogSource__novemberMdx, blogSource__spritesAndBillboardsMdx, blogSource__vulkan1Mdx, blogSource__websiteMdx]
