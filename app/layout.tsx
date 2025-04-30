@@ -16,6 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <script defer src="https://cloud.umami.is/script.js" data-website-id="e60e33aa-11c5-468b-a092-5a36a037b61e"></script>
       <body className={FiraMono.className}>{children}</body>
     </html>
   )
